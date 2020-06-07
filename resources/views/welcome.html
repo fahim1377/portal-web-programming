@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            .container{
+                background-color: black;
+                padding: 50px;
+            }
+            .card{
+                background-color: #102027;
+                border-radius: 7px;
+                width: 70%;
+                margin: auto;
+            }
+            img{
+                width: 200px;
+                height: 200px;
+                position: relative;
+                top: -100px;
+                left: 70%;
+                border-radius: 50%;
+            }
+            img:hover{
+                alt: my picture;
+            }
+            .card_header{
+                padding: 50px;
+                background-color: #37474f;    
+                font-size: 50px;
+            }
+            .card_body{
+                color: white;
+            }
+            .inner_body_card{
+                display: flex;
+                padding: 50px;
+                font-size: 20px;
+            }
+            .right_side{
+                margin-left: 100px;
+                text-align: center;
+                width: 50%;
+                height: 250px;
+                overflow-y: scroll;
+            }
+            .more{
+                border-radius: 50%;
+                height:80px;
+                width: 80px;
+                padding: 20pz;
+                position: relative;
+                top: -40px;
+                left: 44%;
+                background-color: #4f5b62;
+                cursor: pointer;
+                border: 2px solid #263238;
+                font-size: 20px;
+                transition: .5s;
+            }
+            .more:hover{
+                background-color: #263238;
+                height:100px;
+                width: 100px;
+                top: -50px;
+                left: 43.5%;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="card_header">Id card</div>
+                <div class="card_body">
+                    <img src="fahim.jpg" alt = "my picture">
+                    <div class="inner_body_card" >
+                        <div class="left_side">
+                            <p>Fahim</p>
+                            <div style="background-color:#1b1b1b;height:3px;"></div>
+                            <p>Jafari</p>
+                            <div style="background-color:#1b1b1b;height:3px;"></div>
+                            <p>Computer science</p>
+                            <div style="background-color:#1b1b1b;height:3px;"></div>
+                            <p>Ferdowsi of mashhad</p>
+                            <div style="background-color:#1b1b1b;height:3px;"></div>
+                        </div>
+                        <div style="background-color:#1b1b1b;width:5px;margin-left:20%"></div>
+                        <div class="right_side">
+                            <div style="background-color:#1b1b1b;width:100%;"><p> about me:</p></div>
+                            <br>
+                            <div style="scrollbar-width: 100px;">
+                                I'm interested in machine learning and data science and my curriculum is in this way.
+                             I have intermediate skills in Java programming, C #, Python and PHP, SQL, C++, MATLAB, VERILOG,
+                              and interested to learn a new language if it will be necessary.also have
+                               some machine learning skills in computer vision and natural language processing.
+                                and passed data structure, database, software engineering courses.
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+            <button class="more" onclick="window.location.href='html2.html'"><span>more</span></button>
+        </div>
+    </body>
+</html>
