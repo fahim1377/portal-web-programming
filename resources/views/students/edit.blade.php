@@ -10,12 +10,12 @@
 show for edit student
 <br>
 <br><br><br>
-<form   action="../../students/{{$student->student_id}}" method="post">
+<form   action="../../students/{{$student->id}}" method="post">
     {{--TODO Mr.Sulaiman write generic mode for this part because maybe will add some field here--}}
     {{--TODO hide or delete those fields that are not neccessary like id field--}}
     {{csrf_field()}}
     @method('PATCH')
-    <input type="text" , name="student_id" value={{$student->student_id}}>
+    <input type="text" , name="student_id" value={{$student->id}}>
     <input type="text" , name="person_id" value={{$student->person_id}}>
     <input type="text" , name="educational_group_id" value={{$student->educational_group_id}}>
     <input type="text" , name="guide_teacher_id" value={{$student->guide_teacher_id}}>
@@ -26,5 +26,15 @@ show for edit student
     <input type="text" , name="field" value={{$person->field}}>
     <input type="submit">
 </form>
+
+<form   action="../../students/{{$student->id}}" method="post">
+    {{--TODO Mr.Sulaiman write generic mode for this part because maybe will add some field here--}}
+    {{--TODO hide or delete those fields that are not neccessary like id field--}}
+    {{csrf_field()}}
+    @method('DELETE')
+    <input type="text" , name="id" value={{$student->id}}>
+    <input type="submit" value="delete">
+</form>
+
 </body>
 </html>
