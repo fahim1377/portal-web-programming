@@ -14,8 +14,8 @@ class CreateEducationalGroupsTable extends Migration
     public function up()
     {
         Schema::create('educational_groups', function (Blueprint $table) {
-            $table->unsignedBigInteger('educational_group_id');
-            $table->primary('educational_group_id');
+            $table->unsignedBigInteger('id');
+            $table->primary('id');
             $table->string('name',50)->collation('utf8_general_ci');
             $table->timestamps();
         });

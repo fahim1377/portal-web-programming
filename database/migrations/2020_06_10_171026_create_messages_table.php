@@ -14,14 +14,14 @@ class CreateMessagesTable extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->unsignedBigInteger('message_id');
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('person_id');
             $table->unsignedBigInteger('room_number');
             $table->unsignedBigInteger('person_id1');
             $table->unsignedBigInteger('person_id2');
-            $table->foreign('person_id')->references('person_id')->on('people');
+            $table->foreign('person_id')->references('id')->on('people');
             $table->foreign(['room_number','person_id1','person_id2'])->references(['room_number','person_id1','person_id2'])->on('rooms');
-            $table->primary('message_id');
+            $table->primary('id');
             $table->date('date');
             $table->boolean('is_seen');
             $table->timestamps();

@@ -14,8 +14,8 @@ class CreatePeopleTable extends Migration
     public function up()
     {
         Schema::create('people', function (Blueprint $table) {
-            $table->unsignedBigInteger('person_id');
-            $table->primary('person_id');
+            $table->unsignedBigInteger('id');
+            $table->primary('id');
             $table->text('fname',30)->collation('utf8_general_ci');
             $table->text('lname',30)->collation('utf8_general_ci');
             $table->text('field',30)->collation('utf8_general_ci');

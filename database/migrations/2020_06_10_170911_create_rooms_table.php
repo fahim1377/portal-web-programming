@@ -17,12 +17,11 @@ class CreateRoomsTable extends Migration
             $table->unsignedBigInteger('room_number');
             $table->unsignedBigInteger('person_id1');
             $table->unsignedBigInteger('person_id2');
-            $table->foreign('person_id1')->references('person_id')->on('people');
-            $table->foreign('person_id2')->references('person_id')->on('people');
+            $table->foreign('person_id1')->references('id')->on('people');
+            $table->foreign('person_id2')->references('id')->on('people');
             $table->primary(['room_number','person_id1','person_id2']);
             $table->char('type',15);
-            $table->timestamps();
-        });
+            $table->timestamps();        });
     }
 
     /**

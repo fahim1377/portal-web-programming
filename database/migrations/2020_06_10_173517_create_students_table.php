@@ -14,14 +14,14 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('person_id');
             $table->unsignedBigInteger('educational_group_id');
             $table->unsignedBigInteger('guide_teacher_id');
-            $table->primary('student_id');
-            $table->foreign('person_id')->references('person_id')->on('people');
-            $table->foreign('guide_teacher_id')->references('personnel_id')->on('teachers');
-            $table->foreign('educational_group_id')->references('educational_group_id')->on('educational_groups');
+            $table->primary('id');
+            $table->foreign('person_id')->references('id')->on('people');
+            $table->foreign('guide_teacher_id')->references('id')->on('teachers');
+            $table->foreign('educational_group_id')->references('id')->on('educational_groups');
             $table->smallInteger('units_no');
             $table->string('grade',30)->collation('utf8_general_ci');
             $table->timestamps();

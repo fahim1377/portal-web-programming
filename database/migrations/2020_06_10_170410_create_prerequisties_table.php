@@ -16,8 +16,8 @@ class CreatePrerequistiesTable extends Migration
         Schema::create('prerequisties', function (Blueprint $table) {
             $table->unsignedBigInteger('course_id_doer');
             $table->unsignedBigInteger('course_id_been');
-            $table->foreign('course_id_doer')->references('course_id')->on('courses');
-            $table->foreign('course_id_been')->references('course_id')->on('courses');
+            $table->foreign('course_id_doer')->references('id')->on('courses');
+            $table->foreign('course_id_been')->references('id')->on('courses');
             $table->timestamps();
         });
     }

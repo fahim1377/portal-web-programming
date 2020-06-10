@@ -16,7 +16,7 @@ class CreateContentsTable extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->unsignedInteger('number');
             $table->unsignedBigInteger('course_id');
-            $table->foreign('course_id')->references('course_id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses');
             $table->primary(['course_id','number']);
             $table->string('name',100)->collation('utf8_general_ci');
             $table->string('media');
