@@ -22,4 +22,5 @@ Route::get('/laravel', function () {
 
 Route::resource('students','StudentController');
 Route::resource('persons','PersonController');
+Route::resource('teachers','TeacherController');
 

@@ -65,7 +65,7 @@ class StudentController extends Controller
         $student->person_id = $request->person_id;
         //TODO replace group id with group name
         $student->educational_group_id = $request->educational_group_id;
-        //TODO replace teacher id with teacher name
+        //TODO replace teachers id with teachers name
         $student->guide_teacher_id = $request->guide_teacher_id;
         $student->units_no = $request->units_no;
         $student->grade = $request->grade;
@@ -131,7 +131,7 @@ class StudentController extends Controller
         'person_id'             => $request->person_id,
         //TODO replace group id with group name
         'educational_group_id'  => $request->educational_group_id,
-        //TODO replace teacher id with teacher name
+        //TODO replace teachers id with teachers name
         'guide_teacher_id'      => $request->guide_teacher_id,
         'units_no'              => $request->units_no,
         'grade'                 => $request->grade,
