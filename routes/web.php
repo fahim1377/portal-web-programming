@@ -23,4 +23,10 @@ Route::get('/laravel', function () {
 Route::resource('students','StudentController');
 Route::resource('persons','PersonController');
 Route::resource('teachers','TeacherController');
+Route::resource('courses','CourseController');
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
