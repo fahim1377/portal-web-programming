@@ -17,8 +17,8 @@ class CourseController extends Controller
     {
         //
         $courses = Course::all();
-        return view('students/index',[
-                'students' => $courses
+        return view('courses/index',[
+                'courses' => $courses
             ]
         );
     }
