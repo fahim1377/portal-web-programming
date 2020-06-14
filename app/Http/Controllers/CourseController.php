@@ -51,11 +51,8 @@ class CourseController extends Controller
         //      first create courses then create student
         $course = new Course();
         $course->id = $request->id;
-        $course->year = $request->year;
-        $course->term = $request->term;
         $course->name = $request->name;
         $course->unit_no = $request->unit_no;
-        $course->student_no = $request->student_no;
         $course->save();
 
         return view('courses/create',[
@@ -105,11 +102,8 @@ class CourseController extends Controller
         //
         Course::where('id',$request->id)->update([
             'id'        => $request->id,
-            'year'      => $request->year,
-            'term'      => $request->term,
             'name'      => $request->name,
-            'unit_no'   => $request->unit_no,
-            'student_no'      => $request->student_no
+            'unit_no'   => $request->unit_no
 
         ]);
         return redirect('courses/'.$request->id);

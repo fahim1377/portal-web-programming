@@ -7,31 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-show for edit teacher
+show for edit prerequiste
 <br>
 <br><br><br>
-<form   action="../../$prerequisties/{{$prerequiste->id}}" method="post">
-    {{--TODO Mr.Sulaiman write generic mode for this part because maybe will add some field here--}}
-    {{--TODO hide or delete those fields that are not neccessary like id field--}}
-    {{csrf_field()}}
-    @method('PATCH')
-    <input type="text" , name="id" value={{$prerequiste->id}}>
-    <input type="text" , name="person_id" value={{$prerequiste->person_id}}>
-    <input type="text" , name="academic_rank" value={{$prerequiste->academic_rank}}>
-    <input type="text" , name="fname" value={{$person->fname}}>
-    <input type="text" , name="lname" value={{$person->lname}}>
-    <input type="text" , name="field" value={{$person->field}}>
-    <input type="submit">
-</form>
+for edit
+@foreach($prerequisties as $prerequiste)
+    <form   action="../../prerequisties/{{$prerequiste->course_id_doer}}" method="post">
+        {{--TODO Mr.Sulaiman write generic mode for this part because maybe will add some field here--}}
+        {{--TODO hide or delete those fields that are not neccessary like id field--}}
+        {{csrf_field()}}
+        @method('PATCH')
+        <input type="text" , name="course_id_doer" value={{$prerequiste->course_id_doer}}>
+        <input type="text" , name="course_id_been" value={{$prerequiste->course_id_been}}>
+        {{--previous course id been--}}
+        <input type="hidden" , name="course_id_been_pre" value={{$prerequiste->course_id_been}}>
 
-<form   action="../../$prerequisties/{{$prerequiste->id}}" method="post">
-    {{--TODO Mr.Sulaiman write generic mode for this part because maybe will add some field here--}}
-    {{--TODO hide or delete those fields that are not neccessary like id field--}}
-    {{csrf_field()}}
-    @method('DELETE')
-    <input type="text" , name="id" value={{$$prerequiste->id}}>
-    <input type="submit" value="delete">
-</form>
+        <input type="submit">
+    </form>
+    <br><br>
+@endforeach
+
+<br><br>
+for delete
+@foreach($prerequisties as $prerequiste)
+    <form   action="../../prerequisties/{{$prerequiste->course_id_doer}}" method="post">
+        {{--TODO Mr.Sulaiman write generic mode for this part because maybe will add some field here--}}
+        {{--TODO hide or delete those fields that are not neccessary like id field--}}
+        {{csrf_field()}}
+        @method('DELETE')
+        <input type="text" , name="course_id_doer" value={{$prerequiste->course_id_doer}}>
+        <input type="text" , name="course_id_been" value={{$prerequiste->course_id_been}}>
+        <input type="submit" value="delete">
+    </form>
+    <br><br>
+@endforeach
 
 </body>
 </html>

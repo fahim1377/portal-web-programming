@@ -17,8 +17,8 @@ class PrerequistiesController extends Controller
     {
         //
         $prerequisties = Prerequisties::all();
-        return view('students/index',[
-                '$prerequisties' => $prerequisties
+        return view('prerequisties/index',[
+                'prerequisties' => $prerequisties
             ]
         );
     }
@@ -32,7 +32,7 @@ class PrerequistiesController extends Controller
     {
         //
         //TODO validate
-        //TODO send techers for guide
+        //TODO send courses for guide
         return view('prerequisties/create');
     }
 
@@ -71,8 +71,8 @@ class PrerequistiesController extends Controller
     {
         //
         //TODO validate
-        $prerequistie = Prerequisties::where('course_id_doer',$id)->all();
-        return view('prerequisties/show',['$prerequistie'=>$prerequistie]);
+        $prerequiste = Prerequisties::where('course_id_doer',$id)->get();
+        return view('prerequisties/show',['prerequiste'=>$prerequiste]);
     }
 
     /**
@@ -85,8 +85,8 @@ class PrerequistiesController extends Controller
     {
         //
         //TODO validate
-        $person = Prerequisties::find($id);
-        return view('prerequisties/edit',['person'=>$person]);
+        $prerequisties = Prerequisties::where('course_id_doer',$id)->get();
+        return view('prerequisties/edit',['prerequisties'=>$prerequisties]);
     }
 
     /**
@@ -99,13 +99,11 @@ class PrerequistiesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        Prerequisties::where('id',$request->id)->update([
-            'id'        => $request->id,
-            'fname'     => $request->fname,
-            'lname'     => $request->lname,
-            'field'     => $request->field
+        Prerequisties::where([['course_id_doer','=',$request->course_id_doer],['course_id_been','=',$request->course_id_been_pre]])->update([
+            'course_id_doer'        => $request->course_id_doer,
+            'course_id_been'        => $request->course_id_been
         ]);
-        return redirect('prerequisties/'.$request->id);
+        return redirect('prerequisties/'.$request->course_id_doer);
     }
 
     /**
@@ -114,10 +112,10 @@ class PrerequistiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         //
         //TODO validate
-        Prerequisties::where('id',$id)->delete();
+        Prerequisties::where([['course_id_doer','=',$id],['course_id_been','=',$request->course_id_been]])->delete();
     }
 }

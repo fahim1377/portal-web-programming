@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+
 @foreach($prerequisties as $prerequiste)
     <li>{{$prerequiste}}</li>
 @endforeach

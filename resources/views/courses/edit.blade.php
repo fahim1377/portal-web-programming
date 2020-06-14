@@ -16,11 +16,8 @@ show for edit student
     {{csrf_field()}}
     @method('PATCH')
     <input type="text" , name="id" value={{$course->id}}>
-    <input type="text" , name="year"value={{$course->year}}>
-    <input type="text" , name="term"value={{$course->term}}>
     <input type="text" , name="name"value={{$course->name}}>
     <input type="text" , name="unit_no"value={{$course->unit_no}}>
-    <input type="text" , name="student_no"value={{$course->student_no}}>
     <input type="submit">
 </form>
 
