@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="592eaddf-37e3-4a05-a8ab-0307a258d7a7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ieProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ieProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PrerequistiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PrerequistiesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,14 +37,14 @@
         <counts>
           <entry key="env" value="2" />
           <entry key="html" value="2" />
-          <entry key="php" value="149" />
+          <entry key="php" value="163" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Blade" value="57" />
           <entry key="HTML" value="2" />
-          <entry key="PHP" value="92" />
+          <entry key="PHP" value="106" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -50,14 +53,14 @@
           <entry key="dummy" value="3" />
           <entry key="env" value="8" />
           <entry key="html" value="108" />
-          <entry key="php" value="5596" />
+          <entry key="php" value="5706" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Blade" value="1518" />
           <entry key="HTML" value="108" />
-          <entry key="PHP" value="4078" />
+          <entry key="PHP" value="4188" />
           <entry key="PLAIN_TEXT" value="11" />
         </counts>
       </usages-collector>
@@ -65,14 +68,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PrerequistiesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+            <state relative-caret-position="120">
+              <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
               <folding>
                 <element signature="e#40#62#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_14_160214_create_course_student_teachers_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="19" column="69" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -99,6 +111,7 @@
       <find>teacher</find>
       <find>persons</find>
       <find>prerequisties</find>
+      <find>course_id</find>
     </findStrings>
     <replaceStrings>
       <replace>Course</replace>
@@ -116,9 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2020_06_07_145417_create_people_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_06_07_164207_create_rooms_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_06_07_165257_create_messages_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_07_182715_create_teachers_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_07_183148_create_students_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_07_191536_create_educational_groups_table.php" />
@@ -129,7 +139,6 @@
         <option value="$PROJECT_DIR$/resources/views/students/create.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_10_165600_create_courses_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_10_170410_create_prerequisties_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_06_10_170708_create_contents_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_10_170807_create_people_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_10_170911_create_rooms_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_06_10_171026_create_messages_table.php" />
@@ -167,6 +176,10 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/prerequisties/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PrerequistiesController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_06_14_153305_create_courses_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_06_14_155710_update_course.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_06_10_170708_create_contents_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_06_14_160214_create_course_student_teachers_table.php" />
       </list>
     </option>
   </component>
@@ -279,13 +292,15 @@
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="601" />
-    <option name="y" value="-14" />
-    <option name="width" value="740" />
-    <option name="height" value="590" />
+    <option name="x" value="-8" />
+    <option name="width" value="919" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -321,20 +336,13 @@
             <path>
               <item name="ieProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="ieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ieProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="ieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ieProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ieProject" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="prerequisties" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ieProject" type="b2602c69:ProjectViewProjectNode" />
@@ -356,15 +364,15 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\myProject\ie\ieproject\ieProject\resources\views\students" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\myProject\ie\ieproject\ieProject\database\migrations" />
       <recent name="E:\myProject\ie\ieproject\ieProject\resources\views" />
       <recent name="E:\myProject\ie\ieproject\ieProject\resources\views\course" />
       <recent name="E:\myProject\ie\ieproject\ieProject\resources\views\teachers" />
       <recent name="E:\myProject\ie\ieproject\ieProject\resources\views\persons" />
-      <recent name="E:\myProject\ie\ieproject\ieProject\resources\views\students" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\myProject\ie\ieproject\ieProject\resources\views\students" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -401,12 +409,12 @@
       <workItem from="1591888087364" duration="7317000" />
       <workItem from="1592051162094" duration="8088000" />
       <workItem from="1592130279027" duration="3241000" />
-      <workItem from="1592145191732" duration="2076000" />
+      <workItem from="1592145191732" duration="5315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67568000" />
+    <option name="totallyTimeSpent" value="70807000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -450,34 +458,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Person.php" />
-    <entry file="file://$PROJECT_DIR$/app/Prerequisties.php" />
-    <entry file="file://$PROJECT_DIR$/app/Room.php" />
     <entry file="file://$PROJECT_DIR$/app/Teacher.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContentController.php" />
     <entry file="file://$PROJECT_DIR$/app/Course.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_165600_create_courses_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_170410_create_prerequisties_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="19" column="59" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_170708_create_contents_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_170807_create_people_table.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -509,13 +493,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_171605_create_students_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_171315_create_educational_groups_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_173517_create_students_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_173421_create_educational_groups_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -678,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TeacherController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -727,20 +697,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/prerequisties/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CourseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_14_153305_create_courses_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_14_155710_update_course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_173517_create_students_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="65" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_165600_create_courses_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_170410_create_prerequisties_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_10_170708_create_contents_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PrerequistiesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+        <state relative-caret-position="120">
+          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
           <folding>
             <element signature="e#40#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/prerequisties/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_06_14_160214_create_course_student_teachers_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        <state relative-caret-position="136">
+          <caret line="19" column="69" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
         </state>
       </provider>
     </entry>
