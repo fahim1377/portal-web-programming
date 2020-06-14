@@ -24,6 +24,7 @@ Route::resource('students','StudentController');
 Route::resource('persons','PersonController');
 Route::resource('teachers','TeacherController');
 Route::resource('courses','CourseController');
+Route::resource('prerequisties','PrerequistiesController');
 
 
 
