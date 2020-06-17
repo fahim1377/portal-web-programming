@@ -7,5 +7,5 @@
  */
 
 return [
-    'fields' => array(['کامپیوتر',  'برق',  'مکانیک'])
+    'fields' => array(['computer',  'bargh',  'mechanic'])
 ];

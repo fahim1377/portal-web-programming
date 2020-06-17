@@ -10,32 +10,42 @@
 <a href="/teachers" class="buttons">اساتید</a>
 
 <br>
-@foreach($students as $student)
-    <li>{{$student}}    <a href={{"/students/". $student->id .'/edit'}} class="buttons">ویرایش</a>
-    </li>
+@foreach($students as $field)
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>person_id</th>
+                <th>educational_group_id</th>
+                <th>guide_teacher_id</th>
+                <th>units_no</th>
+                <th>grade</th>
+                <th>fname</th>
+                <th>lname</th>
+                <th>field</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($field as $student)
+            <tr>
+                <td>{{$student->id}}</td>
+                <td>{{$student->person_id}}</td>
+                <td>{{$student->educational_group_id}}</td>
+                <td>{{$student->guide_teacher_id}}</td>
+                <td>{{$student->units_no}}</td>
+                <td>{{$student->grade}}</td>
+                <td>{{$student->fname}}</td>
+                <td>{{$student->lname}}</td>
+                <td>{{$student->field}}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    <br><br><br><br><br>
 @endforeach
 
-<table class="table table-sm">
-    <thead>
-        <tr>
-            <th>Statistics</th>
-            <th>#1</th>
-            <th>#2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Driver Name</td>
-            <td>John Doe</td>
-            <td>Mary Sue</td>
-        </tr>
-        <tr>
-            <td>Origin</td>
-            <td>Downtown</td>
-            <td>Uptown</td>
-        </tr>
-    </tbody>
-</table>
+
 
 
 </body>

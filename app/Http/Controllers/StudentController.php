@@ -9,6 +9,7 @@ use App\PersonStudent_view;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\Input;
 
 class StudentController extends Controller
@@ -22,15 +23,14 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $students = PersonStudent_view::all();                          //personStudent is a view of person and student tables
         $fields = Config::get('constants.fields');
         $students_grouped = array();
+        DB::enableQueryLog();
         foreach ($fields[0] as $field){
-            $students_grouped[$field] =   PersonStudent_view::where('field',$field)->get();
+            $students_grouped[$field] =   PersonStudent_view::where([['field','=',strval($field)]])->get();
         }
-        dd($students_grouped);
         return view('students/index',[
-                'students' => $students
+                'students' => $students_grouped
             ]
         );
     }
