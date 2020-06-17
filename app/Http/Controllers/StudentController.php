@@ -8,6 +8,7 @@ use App\Person;
 use App\PersonStudent_view;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Symfony\Component\Console\Input\Input;
 
 class StudentController extends Controller
@@ -21,12 +22,17 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $students = PersonStudent_view::all();
+        $students = PersonStudent_view::all();                          //personStudent is a view of person and student tables
+        $fields = Config::get('constants.fields');
+        $students_grouped = array();
+        foreach ($fields[0] as $field){
+            $students_grouped[$field] =   PersonStudent_view::where('field',$field)->get();
+        }
+        dd($students_grouped);
         return view('students/index',[
                 'students' => $students
             ]
         );
-
     }
 
     /**
@@ -94,7 +100,7 @@ class StudentController extends Controller
         //TODO validate
         $student = Student::find($id);                                                  //find student on id
         $person = Person::find($student->person_id);                                    //find person record related to student for name and other personal info
-        $educational_group = EducationalGroup::find($student->educational_group_id);    //find edudcational group(field) of student by id
+        $educational_group = EducationalGroup::find($student->educational_group_id);    //find edudcational group of student by id
         return view('students/show',[
             'student'       =>$student,
             'person'        =>$person,
