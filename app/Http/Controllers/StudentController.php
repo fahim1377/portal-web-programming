@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\EducationalGroup;
 use App\Person;
+use App\PersonStudent_view;
 use App\Student;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
@@ -19,7 +21,7 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $students = Student::all();
+        $students = PersonStudent_view::all();
         return view('students/index',[
                 'students' => $students
             ]
@@ -90,8 +92,14 @@ class StudentController extends Controller
     {
         //
         //TODO validate
-        $student = Student::find($id);
-        return view('students/show',['student'=>$student]);
+        $student = Student::find($id);                                                  //find student on id
+        $person = Person::find($student->person_id);                                    //find person record related to student for name and other personal info
+        $educational_group = EducationalGroup::find($student->educational_group_id);    //find edudcational group(field) of student by id
+        return view('students/show',[
+            'student'       =>$student,
+            'person'        =>$person,
+            'group_name'    =>$educational_group->name
+        ]);
     }
 
     /**
