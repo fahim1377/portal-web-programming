@@ -7,5 +7,10 @@
  */
 
 return [
-    'fields' => array(['computer',  'bargh',  'mechanic'])
+    "fields" => array(
+        'computer' => 'کامپیوتر',
+        'bargh' => 'برق',
+        'mechanic' => 'مکانیک'),
+
+    "teachers" => "اساتید"
 ];

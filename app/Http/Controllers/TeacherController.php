@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Person;
+use App\PersonTeacherView;
 use App\Teacher;
 use Illuminate\Http\Request;
 
@@ -15,10 +16,10 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $teachers = Teacher::all();
+        $teachers = PersonTeacherView::where('field',strval($request->field))->get();
         return view('teachers/index',[
                 'teachers' => $teachers
             ]

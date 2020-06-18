@@ -26,11 +26,11 @@ class StudentController extends Controller
         $fields = Config::get('constants.fields');
         $students_grouped = array();
         DB::enableQueryLog();
-        foreach ($fields[0] as $field){
-            $students_grouped[$field] =   PersonStudent_view::where([['field','=',strval($field)]])->get();
+        foreach ($fields as $kfield => $vfield){
+            $students_grouped[$kfield] =   PersonStudent_view::where([['field','=',strval($kfield)]])->get();
         }
         return view('students/index',[
-                'students' => $students_grouped
+                'students_grouped' => $students_grouped
             ]
         );
     }

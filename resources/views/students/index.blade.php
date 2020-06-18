@@ -7,10 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-<a href="/teachers" class="buttons">اساتید</a>
-
 <br>
-@foreach($students as $field)
+@foreach($students_grouped as $field => $students)
+    <form   action="../teachers" method="get">
+        {{csrf_field()}}
+        <input type="hidden" , name="field" value="{{$field}}">
+        <input type="submit" name="submit" value="{{"اساتید ".\Illuminate\Support\Facades\Config::get("constants.fields.".strval($field))}}" >
+    </form>
     <table class="table table-sm">
         <thead>
             <tr>
@@ -27,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($field as $student)
+        @foreach($students as $student)
             <tr>
                 <td>{{$student->id}}</td>
                 <td>{{$student->person_id}}</td>
