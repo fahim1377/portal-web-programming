@@ -17,6 +17,10 @@ class Editcoursetable extends Migration
         Schema::table('courses', function (Blueprint $table) {
             //
             $table->unsignedBigInteger('teacher_id');
+            $table->integer('student_no');          //max student that can have
+            $table->integer('year');                //peresented on this year
+            $table->smallInteger('term');           //peresented on this term
+
         });
     }
 
