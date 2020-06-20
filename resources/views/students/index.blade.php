@@ -9,11 +9,17 @@
 <body>
 <br>
 @foreach($students_grouped as $field => $students)
+
+    {{--   this is fot link to teachers    --}}
     <form   action="../teachers" method="get">
         {{csrf_field()}}
         <input type="hidden" , name="field" value="{{$field}}">
         <input type="submit" name="submit" value="{{"اساتید ".\Illuminate\Support\Facades\Config::get("constants.fields.".strval($field))}}" >
     </form>
+    {{--                                    --}}
+
+
+    {{-- show table of student  --}}
     <table class="table table-sm">
         <thead>
             <tr>
@@ -41,10 +47,17 @@
                 <td>{{$student->fname}}</td>
                 <td>{{$student->lname}}</td>
                 <td>{{$student->field}}</td>
+                <td>
+                    {{--   this is fot link to edit students    --}}
+                    <a href="{{ url('/students/'.$student->id.'/edit') }}">ویرایش</a>
+                    {{--   this is fot link to edit students    --}}
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    {{--                                            --}}
+
     <br><br><br><br><br>
 @endforeach
 
