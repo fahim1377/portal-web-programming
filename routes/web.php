@@ -12,14 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//TODO: change it to index
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/laravel', function () {
     return view('welcome2');
 });
+//added for testing
+Route::get('/index', function () {
 
+    return view('index');
+ 
+ });
+//
 Route::resource('students','StudentController');
 Route::resource('persons','PersonController');
 Route::resource('teachers','TeacherController');
