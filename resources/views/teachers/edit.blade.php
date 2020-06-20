@@ -21,6 +21,8 @@ show for edit teacher
     <input type="text" , name="fname" value={{$person->fname}}>
     <input type="text" , name="lname" value={{$person->lname}}>
     <input type="text" , name="field" value={{$person->field}}>
+    <input type="text" , name="field" value={{$person->field}}>
+
     <input type="submit">
 </form>
 

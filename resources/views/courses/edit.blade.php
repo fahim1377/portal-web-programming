@@ -18,6 +18,7 @@ show for edit student
     <input type="text" , name="id" value={{$course->id}}>
     <input type="text" , name="name"value={{$course->name}}>
     <input type="text" , name="unit_no"value={{$course->unit_no}}>
+    <input type="text" , name="teacher_id">
     <input type="submit">
 </form>
 

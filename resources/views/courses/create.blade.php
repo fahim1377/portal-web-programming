@@ -15,6 +15,7 @@ create form for course
     <input type="text" , name="id">
     <input type="text" , name="name">
     <input type="text" , name="unit_no">
+    <input type="text" , name="teacher_id">
     <input type="submit">
 </form>
 

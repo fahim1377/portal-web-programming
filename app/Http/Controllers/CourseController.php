@@ -53,6 +53,7 @@ class CourseController extends Controller
         $course->id = $request->id;
         $course->name = $request->name;
         $course->unit_no = $request->unit_no;
+        $course->unit_no = $request->teacher_id;
         $course->save();
 
         return view('courses/create',[
@@ -103,7 +104,8 @@ class CourseController extends Controller
         Course::where('id',$request->id)->update([
             'id'        => $request->id,
             'name'      => $request->name,
-            'unit_no'   => $request->unit_no
+            'unit_no'   => $request->unit_no,
+            'course_id' => $request->teacher_id
 
         ]);
         return redirect('courses/'.$request->id);
