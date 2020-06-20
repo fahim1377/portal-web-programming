@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <title>ID Card</title>
-        <style>
-            .jumbotron{
-                background-color: #fdffb6;
-            }
-            .card{
-                border-color: #FCA311;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="jumbotron">
-            <div class="row align-middle">
+@extends('layouts.mainlayout')
+
+@section('content')
+
+<div class="album text-muted">
+
+    <div class="jumbotron">
+
+    <div class="row align-middle">
                 <div class="col-sm-1" align="center"></div>
                 <div class="col-sm-5" align="center">
                     <div class="card h-70 d-inline-block" style="padding: 30px;">
@@ -34,7 +20,7 @@
                 </div>                
                 <div class="col-sm-5" align="center">
                     <div class="card h-70 d-inline-block" style="padding: 30px;">
-                        <img class="card-img-top img-fluid rounded" src="/img/img_avatar1.png">
+                        <img class="card-img-top img-fluid rounded" src="/img/sulaiman.jpg">
                         <div class="card-body">
                             <h3 class="card-title">Sulaiman Behzad</h3>
                             <p class="card-text">Computer Engineer</p>
@@ -45,12 +31,16 @@
                 <div class="col-sm-1" align="center"></div>
 
             </div>
-        </div>
-    </body>
-</html>
+
+    </div>
+
+</div>
+
+@endsection
 
 
 
 
 
 
+<b></b>
