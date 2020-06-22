@@ -1,51 +1,34 @@
-<div class="collapse bg-inverse" id="navbarHeader">
-
-<div class="container">
-
-  <div class="row">
-
-    <div class="col-sm-8 py-4">
-
-      <h4 class="text-white">About</h4>
-
-      <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-
-    </div>
-
-    <div class="col-sm-4 py-4">
-
-      <h4 class="text-dark">Contact</h4>
-
-      <ul class="list-unstyled">
-
-        <li><a href="#" class="text-dark">Follow on Twitter</a></li>
-
-        <li><a href="#" class="text-dark">Like on Facebook</a></li>
-
-        <li><a href="#" class="text-dark">Email me</a></li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</div>
-
-</div>
-
-<div class="navbar navbar-dark bg-dark">
-
-<div class="container d-flex justify-content-betIen">
-
-  <a href="#" class="navbar-brand">Album</a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Portal</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-
   </button>
-
-</div>
-
-</div>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Students
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/students/index.blade.php">Show Student</a>
+          <a class="dropdown-item" href="/students/edit.blade.php">Edit Student</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/teachers/index.blade.php">Teachers</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Courses
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/courses/index.blade.php">Show Courses</a>
+          <a class="dropdown-item" href="/courses/edit.blade.php">Select Credits</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

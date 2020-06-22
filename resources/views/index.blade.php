@@ -14,7 +14,9 @@
                         <div class="card-body">
                             <h3 class="card-title">Fahim Jafari</h3>
                             <p class="card-text">Computer Engineer</p>
-                            <a class="btn btn-primary" href="resume2.html" target="_blank" style="background-color: #14213d">Read More</a>
+                            <!-- TODO add fahim's ID -->
+                            <p class="card-text">Student ID: 96</p>
+                            <a class="btn btn-primary" href="#" target="_blank" style="background-color: #14213d">Read More</a>
                         </div>
                     </div>
                 </div>                
@@ -24,7 +26,8 @@
                         <div class="card-body">
                             <h3 class="card-title">Sulaiman Behzad</h3>
                             <p class="card-text">Computer Engineer</p>
-                            <a class="btn btn-primary" href="resume.html" target="_blank" style="background-color: #14213d">Read More</a>
+                            <p class="card-text">Student ID: 9622762453</p>
+                            <a class="btn btn-primary" href="#" target="_blank" style="background-color: #14213d">Read More</a>
                         </div>
                     </div>
                 </div>
