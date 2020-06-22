@@ -8,13 +8,13 @@
 </head>
 <body>
 <br>
-@foreach($students_grouped as $field => $students)
+@foreach($students_grouped as $group => $students)
 
     {{--   this is fot link to teachers    --}}
     <form   action="../teachers" method="get">
         {{csrf_field()}}
-        <input type="hidden" , name="field" value="{{$field}}">
-        <input type="submit" name="submit" value="{{"اساتید ".\Illuminate\Support\Facades\Config::get("constants.fields.".strval($field))}}" >
+        <input type="hidden" , name="field" value="{{$group}}">
+        <input type="submit" name="submit" value="{{"اساتید ".\Illuminate\Support\Facades\Config::get("constants.groups.".strval($group))}}" >
     </form>
     {{--                                    --}}
 

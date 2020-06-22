@@ -18,8 +18,6 @@ class EditCourseStudentTeacher extends Migration
             $table->dropColumn('year');                //peresented on this year
             $table->dropColumn('term');           //peresented on this term
             $table->dropColumn('student_no');           //peresented on this term
-
-
         });
     }
 

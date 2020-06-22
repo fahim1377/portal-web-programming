@@ -7,8 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-@foreach($courses as $course)
-    <li>{{$course}}</li>
+@foreach($courses_grouped as $term => $courses)
+    {{"term".$term}}
+    @foreach($courses as $course)
+        <li>{{$course}}</li>
+    @endforeach
+    <br><br><br><br>
 @endforeach
 </body>
 </html>

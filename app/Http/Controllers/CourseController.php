@@ -16,10 +16,17 @@ class CourseController extends Controller
     public function index(Request $request)
     {
         //
-        $courses = Course::where([['year','=',$request->year],['field','=',$request->field]]);
-        dd($courses);
+        $terms = array('1','2');
+        $courses_grouped = array();                 //consist courses that grouped by term
+        foreach ($terms as $term){
+            $courses_grouped[$term] = Course::where([
+                ['year','=',$request->year],
+                ['group_id','=',$request->group_id],
+                ['term' ,'=',$term]
+            ])->get();
+        }
         return view('courses/index',[
-                'courses' => $courses
+                'courses_grouped' => $courses_grouped
             ]
         );
     }

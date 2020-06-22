@@ -7,7 +7,7 @@
  */
 
 return [
-    "fields" => array(
+    "groups" => array(
         'computer' => 'کامپیوتر',
         'bargh' => 'برق',
         'mechanic' => 'مکانیک'),

@@ -19,7 +19,7 @@ class TeacherController extends Controller
     public function index(Request $request)
     {
         //
-        $teachers = PersonTeacherView::where('field',strval($request->field))->get();
+        $teachers = PersonTeacherView::where('group_id',strval($request->field))->get();
         return view('teachers/index',[
                 'teachers' => $teachers
             ]
