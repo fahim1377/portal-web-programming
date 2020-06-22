@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\EducationalGroup;
 use App\Person;
-use App\PersonTeacherView;
+use App\PersonTeacherViews;
 use App\Teacher;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class TeacherController extends Controller
     public function index(Request $request)
     {
         //
-        $teachers = PersonTeacherView::where('group_id',strval($request->field))->get();
+        $teachers = PersonTeacherViews::where('group_id',strval($request->group_id))->get();
         return view('teachers/index',[
                 'teachers' => $teachers
             ]
@@ -37,7 +38,11 @@ class TeacherController extends Controller
         //
         //TODO validate
         //TODO send techers for guide
-        return view('teachers/create');
+        $groups = EducationalGroup::all();
+        return view('teachers/create',
+            [
+                'groups'    =>  $groups
+            ]);
     }
 
     /**
@@ -57,7 +62,7 @@ class TeacherController extends Controller
         $person->id = $request->person_id;
         $person->fname = $request->fname;
         $person->lname = $request->lname;
-        $person->field = $request->field;
+        $person->group_id = $request->group_id;
         $person->save();
         //        now teacher
         $teacher = new Teacher();
@@ -66,8 +71,10 @@ class TeacherController extends Controller
         $teacher->academic_rank = $request->academic_rank;
         $teacher->save();
 
-        return view('teachers/create',[
-                'message' => 'successed'
+        $groups = EducationalGroup::all();                  //this is send to creat teacher page
+        return view("teachers/create",[
+                'message' => 'successed',
+                'groups'  => $groups
             ]
         );
 

@@ -31,8 +31,6 @@
                 <th>grade</th>
                 <th>fname</th>
                 <th>lname</th>
-                <th>field</th>
-
             </tr>
         </thead>
         <tbody>

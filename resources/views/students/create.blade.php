@@ -19,7 +19,6 @@ create form for student
     <input type="text" , name="grade">
     <input type="text" , name="fname">
     <input type="text" , name="lname">
-    <input type="text" , name="field">
     <input type="submit">
 </form>
 

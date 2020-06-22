@@ -8,7 +8,7 @@
 </head>
 <body>
 show student
-
+{{dd()}}
 <?php echo $teacher ?>
 </body>
 </html>
