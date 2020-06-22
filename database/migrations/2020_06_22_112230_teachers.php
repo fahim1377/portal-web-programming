@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEducationalGroupsTable extends Migration
+class Teachers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateEducationalGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('educational_groups', function (Blueprint $table) {
+        //
+        Schema::create('teachers', function (Blueprint $table) {
             $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('person_id');
+            $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade')->onUpdate('cascade');
             $table->primary('id');
-            $table->string('name',50)->collation('utf8_general_ci');
+            $table->char('academic_rank',30);
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateEducationalGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('educational_groups');
+        //
     }
 }

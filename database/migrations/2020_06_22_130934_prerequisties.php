@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrerequistiesTable extends Migration
+class Prerequisties extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class CreatePrerequistiesTable extends Migration
      */
     public function up()
     {
+        //
         Schema::create('prerequisties', function (Blueprint $table) {
             $table->unsignedBigInteger('course_id_doer');
             $table->unsignedBigInteger('course_id_been');
@@ -29,6 +30,6 @@ class CreatePrerequistiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prerequisties');
+        //
     }
 }

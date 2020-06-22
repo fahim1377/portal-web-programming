@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCascadeTeacher extends Migration
+class EducationalGroups extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,11 @@ class AddCascadeTeacher extends Migration
     public function up()
     {
         //
-        Schema::table('teachers', function (Blueprint $table) {
-            //
-//            $table->dropForeign('person_id');
-            $table->dropColumn('person_id');
-            $table->unsignedBigInteger('person_id');
-            $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade');
+        Schema::create('educational_groups', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
+            $table->primary('id');
+            $table->string('name',50);
+            $table->timestamps();
         });
     }
 

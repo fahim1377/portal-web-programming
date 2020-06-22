@@ -17,13 +17,12 @@ show for edit student
     @method('PATCH')
     <input type="text" , name="student_id" value={{$student->id}}>
     <input type="text" , name="person_id" value={{$student->person_id}}>
-    <input type="text" , name="educational_group_id" value={{$student->educational_group_id}}>
     <input type="text" , name="guide_teacher_id" value={{$student->guide_teacher_id}}>
     <input type="text" , name="units_no" value={{$student->units_no}}>
     <input type="text" , name="grade" value={{$student->grade}}>
-    <input type="text" , name="fname" value={{$person->fname}}>
-    <input type="text" , name="lname" value={{$person->lname}}>
-    <input type="text" , name="field" value={{$person->field}}>
+    <input type="text" , name="fname" value={{$student->fname}}>
+    <input type="text" , name="lname" value={{$student->lname}}>
+    <input type="text" , name="group_id" value={{$student->group_id}}>
     <input type="submit">
 </form>
 

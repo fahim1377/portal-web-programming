@@ -33,6 +33,7 @@ Route::resource('courses','CourseController');
 Route::resource('prerequisties','PrerequistiesController');
 Route::resource('contents','ContentController');
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
