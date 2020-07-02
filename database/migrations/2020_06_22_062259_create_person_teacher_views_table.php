@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PersonStudentview extends Migration
+class CreatePersonTeacherViewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,20 @@ class PersonStudentview extends Migration
      */
     public function up()
     {
-        //
         DB::statement("
-        CREATE VIEW person_student_views
+        CREATE VIEW person_teacher_views
          AS
-             SELECT
-                 students.id,
-                 students.person_id,
-                 students.guide_teacher_id,
-                 students.units_no,
-                 students.grade,
+             SELECT 
+                 teachers.id,
+                 teachers.person_id,
+                 teachers.academic_rank,
                  people.fname,
                  people.lname,
                  people.group_id
          from
-            students,people
+            teachers,people
          where
-            students.person_id = people.id
+            teachers.person_id = people.id
          ;
          ");
     }
@@ -41,6 +38,6 @@ class PersonStudentview extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('person_teacher_views');
     }
 }

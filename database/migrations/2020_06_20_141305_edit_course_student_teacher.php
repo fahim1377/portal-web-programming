@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class EducationalGroups extends Migration
+class EditCourseStudentTeacher extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,10 @@ class EducationalGroups extends Migration
     public function up()
     {
         //
-        Schema::create('educational_groups', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->primary('id');
-            $table->string('name',50);
-            $table->timestamps();
+        Schema::table('course_student_teachers', function (Blueprint $table) {
+            $table->dropColumn('year');                //peresented on this year
+            $table->dropColumn('term');           //peresented on this term
+            $table->dropColumn('student_no');           //peresented on this term
         });
     }
 

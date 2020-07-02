@@ -12,16 +12,12 @@ create form for teacher
 <form   action="../teachers" method="post">
     {{csrf_field()}}
     {{$message??''}}
-    <input type="text" , name="id" placeholder="id">
-    <input type="text" , name="person_id" placeholder="person_id">
-    <input type="text" , name="academic_rank" placeholder="academic_rank">
-    <input type="text" , name="fname" placeholder="fname">
-    <input type="text" , name="lname" placeholder="lname">
-    <select id="group_id" name="group_id">
-        @foreach($groups as $group)
-            <option value={{$group->id}}>{{$group->name}}</option>
-        @endforeach
-    </select>
+    <input type="text" , name="id">
+    <input type="text" , name="person_id">
+    <input type="text" , name="academic_rank">
+    <input type="text" , name="fname">
+    <input type="text" , name="lname">
+    <input type="text" , name="field">
     <input type="submit">
 </form>
 

@@ -24,10 +24,9 @@ class StudentController extends Controller
     {
         //
         $groups = Config::get('constants.groups');
-        $groups = EducationalGroup::all();
         $students_grouped = array();
-        foreach ($groups as $group){
-            $students_grouped[$group->name] =   PersonStudent_view::where([['group_id','=',$group->id]])->get();
+        foreach ($groups as $kgroup => $vgroup){
+            $students_grouped[$kgroup] =   PersonStudent_view::where([['group_id','=',strval($kgroup)]])->get();
         }
         return view('students/index',[
                 'students_grouped' => $students_grouped
@@ -45,11 +44,7 @@ class StudentController extends Controller
         //
         //TODO validate
         //TODO send techers for guide
-        $groups = EducationalGroup::all();
-        return view('students/create',
-            [
-                'groups'    =>  $groups
-            ]);
+        return view('students/create');
     }
 
     /**
@@ -69,13 +64,14 @@ class StudentController extends Controller
         $person->id = $request->person_id;
         $person->fname = $request->fname;
         $person->lname = $request->lname;
-        $person->group_id = $request->group_id;
+        $person->field = $request->field;
         $person->save();
         //        now student
         $student = new Student();
         $student->id = $request->student_id;
         $student->person_id = $request->person_id;
         //TODO replace group id with group name
+        $student->educational_group_id = $request->educational_group_id;
         //TODO replace teachers id with teachers name
         $student->guide_teacher_id = $request->guide_teacher_id;
         $student->units_no = $request->units_no;
@@ -84,10 +80,8 @@ class StudentController extends Controller
 
         $student->save();
 
-        $groups = EducationalGroup::all();
         return view('students/create',[
-                'message' => 'successed',
-                'groups'  => $groups
+                'message' => 'successed'
             ]
         );
 
@@ -123,8 +117,9 @@ class StudentController extends Controller
     {
         //
         //TODO validate
-        $sutdent = PersonStudent_view::where([['id','=',$id]])->get();
-        return view('students/edit',['student'=>$sutdent[0]]);
+        $sutdent = Student::find($id);
+        $person = Person::find($sutdent->person_id);
+        return view('students/edit',['student'=>$sutdent,"person"=>$person]);
     }
 
     /**
