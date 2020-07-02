@@ -4,11 +4,11 @@
 
        <p class="float-right">
 
-         <a href="#">Back to top</a>
+         <a href="#">برگشت به اول</a>
 
        </p>
 
-       <p>Web Pogramming Project &copy; add text here!</p>
+       <p>مهندسی نت، پروژه نهایی &copy</p>
 
      </div>
 
