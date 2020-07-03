@@ -9,14 +9,14 @@
     <div class="row align-middle">
                 <div class="col-sm-1" align="center"></div>
                 <div class="col-sm-5" align="center">
-                    <div class="card h-70 d-inline-block" style="padding: 30px;">
+                    <div class="card " style="padding: 30px;">
                         <img class="card-img-top img-fluid rounded" src="/img/fahim.jpg">
                         <div class="card-body">
-                            <h3 class="card-title">Fahim Jafari</h3>
-                            <p class="card-text">Computer Engineer</p>
+                            <h3 class="card-title">فهیم جعفری</h3>
+                            <p class="card-text">مهندسی کامپیوتر</p>
                             <!-- TODO add fahim's ID -->
-                            <p class="card-text">Student ID: 96</p>
-                            <a class="btn btn-primary" href="#" target="_blank" style="background-color: #14213d">Read More</a>
+                            <p class="card-text">شماره دانشجویی:۹۶</p>
+                            <a class="btn btn-primary" href="#" target="_blank" style="background-color: #14213d">بیشتر بخوانید</a>
                         </div>
                     </div>
                 </div>                
@@ -24,10 +24,10 @@
                     <div class="card h-70 d-inline-block" style="padding: 30px;">
                         <img class="card-img-top img-fluid rounded" src="/img/sulaiman.jpg">
                         <div class="card-body">
-                            <h3 class="card-title">Sulaiman Behzad</h3>
-                            <p class="card-text">Computer Engineer</p>
-                            <p class="card-text">Student ID: 9622762453</p>
-                            <a class="btn btn-primary" href="#" target="_blank" style="background-color: #14213d">Read More</a>
+                            <h3 class="card-title">محمد سلیمان بهزاد</h3>
+                            <p class="card-text">مهندسی کامپیوتر</p>
+                            <p class="card-text"> شماره دانشجویی:۹۶۲۲۷۶۲۴۵۳</p>
+                            <a class="btn btn-primrary" href="#" target="_blank" style="background-color: #14213d">بیشتر بخوانید</a>
                         </div>
                     </div>
                 </div>

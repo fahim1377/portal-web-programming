@@ -23,8 +23,8 @@ Route::get('/laravel', function () {
 Route::get('/index', function () {
 
     return view('index');
- 
- });
+
+});
 //
 Route::resource('students','StudentController')->middleware('auth');
 Route::resource('persons','PersonController');
@@ -38,7 +38,7 @@ Route::resource('takes','CourseStudentController')->except([
 
 
 Route::get('/courses/addToCart/{id}',[
-   'uses' => 'CourseController@add_to_cart',
+    'uses' => 'CourseController@add_to_cart',
     'as'  => 'courses.addToCart'
 ]);
 

@@ -163,12 +163,12 @@ class StudentController extends Controller
         ]);
         //        now student
         Student::where('id',$id)->update([
-        'id'                    => $request->student_id,
-        'u_id'             => $request->u_id,
-        //TODO replace teachers id with teachers name
-        'guide_teacher_id'      => $request->guide_teacher_id,
-        'units_no'              => $request->units_no,
-        'grade'                 => $request->grade
+            'id'                    => $request->student_id,
+            'u_id'             => $request->u_id,
+            //TODO replace teachers id with teachers name
+            'guide_teacher_id'      => $request->guide_teacher_id,
+            'units_no'              => $request->units_no,
+            'grade'                 => $request->grade
         ]);
 
         return redirect('students/'.$request->student_id);

@@ -42,7 +42,7 @@ class TeacherController extends Controller
         $groups = EducationalGroup::all();
         return view('teachers/create',
             [
-            'groups'    =>  $groups
+                'groups'    =>  $groups
             ]);
     }
 
