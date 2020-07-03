@@ -6,15 +6,15 @@
 
 <meta name="author" content="">
 
-<title>Album example for Bootstrap</title>
+<title>پرتال دانشجویی</title>
 
 <!-- Bootstrap core CSS -->
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-rtl.min.css">
 
 
 
 
 <!-- Custom styles for this template -->
 
-<link href="/css/album.css" rel="stylesheet">
+<!-- <link href="/css/album.css" rel="stylesheet"> -->

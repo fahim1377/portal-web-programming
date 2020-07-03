@@ -1,32 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Portal</a>
+  <a class="navbar-brand" href="#">پرتال دانشجویی</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">صفحه‌اصلی <span class="sr-only">(الان)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Students
+          دانشجویان
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/students/index.blade.php">Show Student</a>
-          <a class="dropdown-item" href="/students/edit.blade.php">Edit Student</a>
+          <a class="dropdown-item" href="/students/index.blade.php">مشاهده‌ دانشجویان</a>
+          <a class="dropdown-item" href="/students/edit.blade.php">ویرایش دانشجو</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/teachers/index.blade.php">Teachers</a>
+        <a class="nav-link" href="/teachers/index.blade.php">اساتید</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Courses
+          دروس ارایه شده ترم
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/courses/index.blade.php">Show Courses</a>
-          <a class="dropdown-item" href="/courses/edit.blade.php">Select Credits</a>
+          <a class="dropdown-item" href="/courses/index.blade.php">مشاهده‌ دروس</a>
+          <a class="dropdown-item" href="/courses/edit.blade.php">انتخاب واحد</a>
         </div>
       </li>
     </ul>
