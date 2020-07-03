@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\EducationalGroup;
-use App\Person;
+use App\User;
 use App\PersonTeacherViews;
 use App\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
 {
@@ -20,7 +21,8 @@ class TeacherController extends Controller
     public function index(Request $request)
     {
         //
-        $teachers = PersonTeacherViews::where('group_id',strval($request->group_id))->get();
+        $group = EducationalGroup::where('name',$request->field)->get();
+        $teachers = PersonTeacherViews::where('group_id',$group[0]->id)->get();
         return view('teachers/index',[
                 'teachers' => $teachers
             ]
@@ -57,16 +59,18 @@ class TeacherController extends Controller
         //TODO  if teacher fial to  create maybe person create correct it
         //TODO  if person exist what happened then? oooowww
         //      first create person then create teacher
-        $person = new Person();
-        $person->id = $request->person_id;
-        $person->fname = $request->fname;
-        $person->lname = $request->lname;
-        $person->group_id = $request->group_id;
-        $person->save();
+        $user = new User();
+        $user->id = $request->u_id;
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->group_id = $request->group_id;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
         //        now teacher
         $teacher = new Teacher();
         $teacher->id = $request->id;
-        $teacher->person_id = $request->person_id;
+        $teacher->u_id = $request->u_id;
         $teacher->academic_rank = $request->academic_rank;
         $teacher->save();
 
@@ -89,7 +93,7 @@ class TeacherController extends Controller
     {
         //
         //TODO validate
-        $teacher = Teacher::find($id);
+        $teacher = PersonTeacherViews::find($id);
         return view('teachers/show',['teacher'=>$teacher]);
     }
 
@@ -103,9 +107,10 @@ class TeacherController extends Controller
     {
         //
         //TODO validate
-        $teacher = Teacher::find($id);
-        $person = Person::find($teacher->person_id);
-        return view('teachers/edit',['teacher'=>$teacher,"person"=>$person]);
+        $teacher = PersonTeacherViews::find($id);
+        return view('teachers/edit',[
+            'teacher'   =>  $teacher
+        ]);
     }
 
     /**
@@ -118,16 +123,17 @@ class TeacherController extends Controller
     public function update(Request $request, $id)
     {
         //
-        Person::where('id',$request->person_id)->update([
-            'id'        => $request->person_id,
+        User::where('id',$request->u_id)->update([
+            'id'        => $request->u_id,
             'fname'     => $request->fname,
             'lname'     => $request->lname,
-            'field'     => $request->field
+            'field'     => $request->field,
+            'email'     => $request->email
         ]);
         //        now teacher
         Teacher::where('id',$id)->update([
             'id'                    => $request->id,
-            'person_id'             => $request->person_id,
+            'u_id'             => $request->u_id,
             'academic_rank'         => $request->academic_rank
         ]);
 

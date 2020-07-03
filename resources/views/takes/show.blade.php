@@ -22,17 +22,17 @@
     {{-- show table of student  --}}
     <table class="table table-sm">
         <thead>
-            <tr>
-                <th>id</th>
-                <th>u_id</th>
-                <th>group_id</th>
-                <th>guide_teacher_id</th>
-                <th>units_no</th>
-                <th>grade</th>
-                <th>fname</th>
-                <th>lname</th>
-                <th>email</th>
-            </tr>
+        <tr>
+            <th>id</th>
+            <th>u_id</th>
+            <th>group_id</th>
+            <th>guide_teacher_id</th>
+            <th>units_no</th>
+            <th>grade</th>
+            <th>fname</th>
+            <th>lname</th>
+            <th>email</th>
+        </tr>
         </thead>
         <tbody>
         @foreach($students as $student)

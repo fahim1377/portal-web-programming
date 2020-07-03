@@ -26,13 +26,21 @@ Route::get('/index', function () {
  
  });
 //
-Route::resource('students','StudentController');
+Route::resource('students','StudentController')->middleware('auth');
 Route::resource('persons','PersonController');
 Route::resource('teachers','TeacherController');
 Route::resource('courses','CourseController');
 Route::resource('prerequisties','PrerequistiesController');
 Route::resource('contents','ContentController');
+Route::resource('takes','CourseStudentController')->except([
+    'index','update','edit','create'
+]);
 
+
+Route::get('/courses/addToCart/{id}',[
+   'uses' => 'CourseController@add_to_cart',
+    'as'  => 'courses.addToCart'
+]);
 
 Auth::routes();
 

@@ -16,8 +16,8 @@ class Teachers extends Migration
         //
         Schema::create('teachers', function (Blueprint $table) {
             $table->unsignedBigInteger('id');
-            $table->unsignedBigInteger('person_id');
-            $table->foreign('person_id')->references('id')->on('people')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('u_id');
+            $table->foreign('u_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->primary('id');
             $table->char('academic_rank',30);
             $table->timestamps();

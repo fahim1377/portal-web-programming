@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -37,4 +40,24 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function login(Request $request){
+        $credentials = $request->only('id','password');
+        if (Auth::attempt($credentials)){
+            $user = Auth::user();
+            $this_token = Str::random(64);
+            $user->setRememberToken($this_token);
+            $user->save();
+            $request->session()->put('remember_token',$this_token);
+            return $this->redirectTo;
+        }
+        return back();
+    }
+
+//    public function username()
+//    {
+//        return  'id';
+//    }
+
+
 }

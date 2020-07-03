@@ -16,13 +16,12 @@ show for edit teacher
     {{csrf_field()}}
     @method('PATCH')
     <input type="text" , name="id" value={{$teacher->id}}>
-    <input type="text" , name="person_id" value={{$teacher->person_id}}>
+    <input type="text" , name="u_id" value={{$teacher->u_id}}>
     <input type="text" , name="academic_rank" value={{$teacher->academic_rank}}>
-    <input type="text" , name="fname" value={{$person->fname}}>
-    <input type="text" , name="lname" value={{$person->lname}}>
-    <input type="text" , name="field" value={{$person->field}}>
-    <input type="text" , name="field" value={{$person->field}}>
-
+    <input type="text" , name="fname" value={{$teacher->fname}}>
+    <input type="text" , name="lname" value={{$teacher->lname}}>
+    <input type="text" , name="field" value={{$teacher->group_id}}>
+    <input type="text" , name="email" value={{$teacher->email}}>
     <input type="submit">
 </form>
 

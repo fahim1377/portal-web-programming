@@ -12,7 +12,7 @@ create form for student
 <form   action="../students" method="post">
     {{csrf_field()}}
     <input type="text" , name="student_id" placeholder="student_id">
-    <input type="text" , name="person_id" placeholder="person_id">
+    <input type="text" , name="u_id" placeholder="u_id">
     <select id="group_id" name="group_id">
         @foreach($groups as $group)
             <option value={{$group->id}}>{{$group->name}}</option>
@@ -23,6 +23,8 @@ create form for student
     <input type="text" , name="grade" placeholder="grade">
     <input type="text" , name="fname" placeholder="fname">
     <input type="text" , name="lname" placeholder="lname">
+    <input type="text" , name="email" placeholder="email">
+    <input type="text" , name="password" placeholder="password">
     <input type="submit">
 </form>
 

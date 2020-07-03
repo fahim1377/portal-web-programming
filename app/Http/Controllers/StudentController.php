@@ -6,10 +6,13 @@ namespace App\Http\Controllers;
 use App\EducationalGroup;
 use App\Person;
 use App\PersonStudent_view;
+use App\PersonTeacherViews;
 use App\Student;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Symfony\Component\Console\Input\Input;
 
 class StudentController extends Controller
@@ -23,12 +26,15 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $groups = Config::get('constants.groups');
-        $groups = EducationalGroup::all();
+        $groups = EducationalGroup::all();                      //needed for separate students by their educational groups
         $students_grouped = array();
         foreach ($groups as $group){
+            //separate students by their groups
             $students_grouped[$group->name] =   PersonStudent_view::where([['group_id','=',$group->id]])->get();
         }
+
+
+        //finally send grouped student to index view for show in separate tables
         return view('students/index',[
                 'students_grouped' => $students_grouped
             ]
@@ -45,7 +51,11 @@ class StudentController extends Controller
         //
         //TODO validate
         //TODO send techers for guide
+
+
+        //need when crate new student to choose what is it group
         $groups = EducationalGroup::all();
+
         return view('students/create',
             [
                 'groups'    =>  $groups
@@ -65,25 +75,27 @@ class StudentController extends Controller
         //TODO  if student fial to  create maybe person create correct it
         //TODO  if person exist what happened then? oooowww
         //      first create person then create student
-        $person = new Person();
-        $person->id = $request->person_id;
-        $person->fname = $request->fname;
-        $person->lname = $request->lname;
-        $person->group_id = $request->group_id;
-        $person->save();
+        $user = new User();
+        $user->id = $request->u_id;
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->group_id = $request->group_id;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
         //        now student
         $student = new Student();
         $student->id = $request->student_id;
-        $student->person_id = $request->person_id;
+        $student->u_id = $request->u_id;
         //TODO replace group id with group name
         //TODO replace teachers id with teachers name
         $student->guide_teacher_id = $request->guide_teacher_id;
         $student->units_no = $request->units_no;
         $student->grade = $request->grade;
 
-
         $student->save();
 
+        //need for create another new student
         $groups = EducationalGroup::all();
         return view('students/create',[
                 'message' => 'successed',
@@ -103,12 +115,11 @@ class StudentController extends Controller
     {
         //
         //TODO validate
-        $student = Student::find($id);                                                  //find student on id
-        $person = Person::find($student->person_id);                                    //find person record related to student for name and other personal info
-        $educational_group = EducationalGroup::find($student->educational_group_id);    //find edudcational group of student by id
+        $student = PersonStudent_view::find($id);                               //find student on id
+        //find edudcational group name of student by id
+        $educational_group = EducationalGroup::find($student->group_id);
         return view('students/show',[
             'student'       =>$student,
-            'person'        =>$person,
             'group_name'    =>$educational_group->name
         ]);
     }
@@ -123,8 +134,14 @@ class StudentController extends Controller
     {
         //
         //TODO validate
-        $sutdent = PersonStudent_view::where([['id','=',$id]])->get();
-        return view('students/edit',['student'=>$sutdent[0]]);
+        $sutdent    = PersonStudent_view::where([['id','=',$id]])->get()[0];
+        $groups     = EducationalGroup::all();
+        $teachers   = PersonTeacherViews::where('group_id',$sutdent->group_id)->get();
+        return view('students/edit',[
+            'student'   =>  $sutdent,
+            'groups'    =>  $groups,
+            'teachers'  =>  $teachers
+        ]);
     }
 
     /**
@@ -137,22 +154,21 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         //
-        Person::where('id',$request->person_id)->update([
-            'id'        => $request->person_id,
+        User::where('id',$request->u_id)->update([
+            'id'        => $request->u_id,
             'fname'     => $request->fname,
             'lname'     => $request->lname,
-            'field'     => $request->field
+            'group_id'  => $request->group_id,
+            'email'     =>  $request->email
         ]);
         //        now student
         Student::where('id',$id)->update([
         'id'                    => $request->student_id,
-        'person_id'             => $request->person_id,
-        //TODO replace group id with group name
-        'educational_group_id'  => $request->educational_group_id,
+        'u_id'             => $request->u_id,
         //TODO replace teachers id with teachers name
         'guide_teacher_id'      => $request->guide_teacher_id,
         'units_no'              => $request->units_no,
-        'grade'                 => $request->grade,
+        'grade'                 => $request->grade
         ]);
 
         return redirect('students/'.$request->student_id);

@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     //
+    public function students(){
+        return $this->belongsToMany('APP\Student');
+    }
 }

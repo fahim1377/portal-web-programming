@@ -13,7 +13,7 @@ create form for teacher
     {{csrf_field()}}
     {{$message??''}}
     <input type="text" , name="id" placeholder="id">
-    <input type="text" , name="person_id" placeholder="person_id">
+    <input type="text" , name="u_id" placeholder="u_id">
     <input type="text" , name="academic_rank" placeholder="academic_rank">
     <input type="text" , name="fname" placeholder="fname">
     <input type="text" , name="lname" placeholder="lname">
@@ -22,6 +22,8 @@ create form for teacher
             <option value={{$group->id}}>{{$group->name}}</option>
         @endforeach
     </select>
+    <input type="text" , name="email" placeholder="email">
+    <input type="text" , name="password" placeholder="password">
     <input type="submit">
 </form>
 

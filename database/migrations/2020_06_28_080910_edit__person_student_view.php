@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PersonStudentview extends Migration
+class EditPersonStudentView extends Migration
 {
     /**
      * Run the migrations.
@@ -19,17 +19,18 @@ class PersonStudentview extends Migration
          AS
              SELECT
                  students.id,
-                 students.person_id,
+                 students.u_id,
                  students.guide_teacher_id,
                  students.units_no,
                  students.grade,
-                 people.fname,
-                 people.lname,
-                 people.group_id
+                 users.fname,
+                 users.lname,
+                 users.group_id,
+                 users.email
          from
-            students,people
+            students,users
          where
-            students.person_id = people.id
+            students.u_id = users.id
             ;
          ");
     }

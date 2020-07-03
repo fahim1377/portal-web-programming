@@ -16,13 +16,22 @@ show for edit student
     {{csrf_field()}}
     @method('PATCH')
     <input type="text" , name="student_id" value={{$student->id}}>
-    <input type="text" , name="person_id" value={{$student->person_id}}>
+    <input type="text" , name="u_id" value={{$student->u_id}}>
+    <select id="group_id" name="group_id">
+        @foreach($groups as $group)
+            @if($student->group_id == $group->id)
+                <option value={{$group->id}}  selected="selected">{{$group->name}}</option>
+            @else
+                <option value={{$group->id}} >{{$group->name}}</option>
+            @endif
+        @endforeach
+    </select>
     <input type="text" , name="guide_teacher_id" value={{$student->guide_teacher_id}}>
     <input type="text" , name="units_no" value={{$student->units_no}}>
     <input type="text" , name="grade" value={{$student->grade}}>
     <input type="text" , name="fname" value={{$student->fname}}>
     <input type="text" , name="lname" value={{$student->lname}}>
-    <input type="text" , name="group_id" value={{$student->group_id}}>
+    <input type="text" , name="email" value={{$student->email}}>
     <input type="submit">
 </form>
 

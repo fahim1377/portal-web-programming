@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
-use App\EducationalGroup;
-use App\Providers\Cart;
+use App\CourseStudent;
+use App\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
-class CourseController extends Controller
+class CourseStudentController extends Controller
 {
+    //
     //
     /**
      * Display a listing of the resource.
@@ -60,21 +60,21 @@ class CourseController extends Controller
     {
         //
         //TODO  validate request
-        //TODO  if student fial to  create maybe courses create correct it
-        //TODO  if courses exist what happened then? oooowww
-        //      first create courses then create student
-        $course = new Course();
-        $course->id = $request->id;
-        $course->name = $request->name;
-        $course->unit_no = $request->unit_no;
-        $course->teacher_id = $request->teacher_id;
-        $course->group_id = $request->group_id;
-        $course->year = $request->year;
-        $course->term = $request->term;
-        $course->student_no = $request->student_no;
-        $course->save();
-
-        return view('courses/create',[
+        $user = Auth::user();
+        if($request->session()->remember_token !== $user->getRememberToken()){
+            return back();
+        }
+        $student = Student::find($user->student_id);
+        $cart = $request->session()->get('Cart');
+        $items = $cart->items;
+        foreach ($items as $item){
+            $course = $item['item'];
+            $take = new CourseStudent();
+            $take->student_id   = $student->id;
+            $take->course_id    = $course->id;
+            $take->save();
+        }
+        return view('takes/create',[
                 'message' => 'successed'
             ]
         );
@@ -90,8 +90,11 @@ class CourseController extends Controller
     {
         //
         //TODO validate
-        $course = Course::find($id);
-        return view('courses/show',['course'=>$course]);
+        $takes = CourseStudent::find($id);
+        $student = Student::find($id);
+        //TODO find course in this term taked and related to group
+//        $student->courses()->where([['group']);
+        return view('takes/show',['takes'=>$takes]);
     }
 
     /**
@@ -139,17 +142,5 @@ class CourseController extends Controller
         //
         //TODO validate
         Course::where('id',$id)->delete();
-    }
-
-    public function add_to_cart(Request $request,$id){
-//        dd($request->session());
-        $course = Course::find($id);
-        $old_cart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($old_cart);
-        $is_success = $cart->add($course,$course->id);
-        $request->session()->put('cart',$cart);
-//        dd($request->session());
-//        dd($is_success);
-        return back(302,['message'=>$is_success]);
     }
 }

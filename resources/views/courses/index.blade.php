@@ -7,12 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-@foreach($courses_grouped as $term => $courses)
-    {{"term".$term}}
-    @foreach($courses as $course)
-        <li>{{$course}}</li>
+
+@foreach($courses_grouped as $group => $terms)
+    {{"گروه ".$group}}  <br>
+    @foreach($terms as $term => $courses)
+        {{"term".$term}}    <br>
+        @foreach($courses as $course)
+            <li>
+                {{$course}}
+                <a href="{{ route('courses.addToCart',['id' => $course->id]) }}">اخذ</a>
+            </li>
+        @endforeach
+        <br>
     @endforeach
     <br><br><br><br>
 @endforeach
 </body>
 </html>
+{{dd(session('cart'))}}
