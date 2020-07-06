@@ -29,12 +29,12 @@ Route::get('/index', function () {
 Route::resource('students','StudentController')->middleware('auth');
 Route::resource('persons','PersonController');
 Route::resource('teachers','TeacherController');
-Route::resource('courses','CourseController');
+Route::resource('courses','CourseController')->middleware('auth');
 Route::resource('prerequisties','PrerequistiesController');
 Route::resource('contents','ContentController');
 Route::resource('takes','CourseStudentController')->except([
     'index','update','edit','create'
-]);
+])->middleware('auth');
 
 
 Route::get('/courses/addToCart/{id}',[

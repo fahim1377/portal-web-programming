@@ -8,60 +8,90 @@
 </head>
 <body>
 <br>
-@foreach($students_grouped as $group => $students)
-
     {{--   this is fot link to teachers    --}}
-    <form   action="../teachers" method="get">
-        {{csrf_field()}}
-        <input type="hidden" , name="field" value="{{$group}}">
-        <input type="submit" name="submit" value="{{"اساتید ".strval($group)}}" >
-    </form>
+    {{--<form   action="../teachers" method="get">--}}
+        {{--{{csrf_field()}}--}}
+        {{--<input type="hidden" , name="field" value="{{$group}}">--}}
+        {{--<input type="submit" name="submit" value="{{"اساتید ".strval($group)}}" >--}}
+    {{--</form>--}}
     {{--                                    --}}
-
-
-    {{-- show table of student  --}}
+جدول نهایی
     <table class="table table-sm">
         <thead>
         <tr>
             <th>id</th>
-            <th>u_id</th>
+            <th>year</th>
+            <th>term</th>
+            <th>name</th>
+            <th>unit_no</th>
+            <th>student_no</th>
+            <th>teacher_id</th>
             <th>group_id</th>
-            <th>guide_teacher_id</th>
-            <th>units_no</th>
-            <th>grade</th>
-            <th>fname</th>
-            <th>lname</th>
-            <th>email</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($students as $student)
+        @foreach($taken as $course)
             <tr>
-                <td>{{$student->id}}</td>
-                <td>{{$student->u_id}}</td>
-                <td>{{$student->group_id}}</td>
-                <td>{{$student->guide_teacher_id}}</td>
-                <td>{{$student->units_no}}</td>
-                <td>{{$student->grade}}</td>
-                <td>{{$student->fname}}</td>
-                <td>{{$student->lname}}</td>
-                <td>{{$student->field}}</td>
-                <td>{{$student->email}}</td>
+                <td>{{$course->id}}</td>
+                <td>{{$course->year}}</td>
+                <td>{{$course->term}}</td>
+                <td>{{$course->name}}</td>
+                <td>{{$course->unit_no}}</td>
+                <td>{{$course->student_no}}</td>
+                <td>{{$course->teacher_id}}</td>
+                <td>{{$course->group_id}}</td>
                 <td>
-                    {{--   this is fot link to edit students    --}}
-                    <a href="{{ url('/students/'.$student->id.'/edit') }}">ویرایش</a>
-                    {{--   this is fot link to edit students    --}}
+                    <form   action="../../takes/{{$course->id}}" method="post">
+                        {{csrf_field()}}
+                        @method('DELETE')
+                        <input type="hidden" , name="student_id" value={{$student_id}}>
+                        <input type="submit" value="delete">
+                    </form>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
     {{--                                            --}}
-    <br><br><br><br><br>
-@endforeach
+<br><br><br><br><br>
 
-
-
+جدول رزرو
+@if(session()->get('cart') != null)
+    <table class="table table-sm">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>year</th>
+            <th>term</th>
+            <th>name</th>
+            <th>unit_no</th>
+            <th>student_no</th>
+            <th>teacher_id</th>
+            <th>group_id</th>
+        </tr>
+        </thead>
+        <tbody>
+        @if(session()->get('cart')->items != null)
+            @foreach(session()->get('cart')->items as $item)
+                <tr>
+                    <td>{{$item['course']->id}}</td>
+                    <td>{{$item['course']->year}}</td>
+                    <td>{{$item['course']->term}}</td>
+                    <td>{{$item['course']->name}}</td>
+                    <td>{{$item['course']->unit_no}}</td>
+                    <td>{{$item['course']->student_no}}</td>
+                    <td>{{$item['course']->teacher_id}}</td>
+                    <td>{{$item['course']->group_id}}</td>
+                </tr>
+            @endforeach
+        @endif
+        </tbody>
+    </table>
+    <form   action="../takes" method="post">
+    {{csrf_field()}}
+    <input type="submit" name="submit" value="{{"تایید نهایی"}}" >
+    </form>
+@endif
 
 </body>
 </html>

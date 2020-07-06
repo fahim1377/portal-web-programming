@@ -49,7 +49,7 @@ class LoginController extends Controller
             $user->setRememberToken($this_token);
             $user->save();
             $request->session()->put('remember_token',$this_token);
-            return $this->redirectTo;
+            return redirect()->route('\home');
         }
         return back();
     }

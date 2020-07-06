@@ -8,6 +8,14 @@
 </head>
 <body>
 
+
+{{session()->get('message')??''}}
+@php
+    if (session()->has('message')){
+        session()->remove('message');
+    }
+@endphp
+<br><br><br>
 @foreach($courses_grouped as $group => $terms)
     {{"گروه ".$group}}  <br>
     @foreach($terms as $term => $courses)
@@ -22,6 +30,7 @@
     @endforeach
     <br><br><br><br>
 @endforeach
+
 </body>
 </html>
 {{dd(session('cart'))}}

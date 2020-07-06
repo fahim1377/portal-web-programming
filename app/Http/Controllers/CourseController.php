@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\EducationalGroup;
 use App\Providers\Cart;
+use App\Student;
+use function Couchbase\defaultDecoder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Morilog\Jalali\Jalalian;
 
 class CourseController extends Controller
 {
@@ -142,14 +146,38 @@ class CourseController extends Controller
     }
 
     public function add_to_cart(Request $request,$id){
-//        dd($request->session());
+        $user = Auth::user();
         $course = Course::find($id);
-        $old_cart = Session::has('cart') ? Session::get('cart') : null;
+        /*********this part check course reserved from student's group*************/
+        if($user->group_id != $course->group_id){
+            $request->session()->put('message','from another group reserve is forbidden');
+            return back(302);
+        }
+        /**********************************end part*********************************/
+
+        /************get the number units that user already gotten(PLUS MARK)*************/
+        $date = Jalalian::now();
+        $this_year  = $date->getYear();
+        $this_term  = 1;
+        $student    = Student::where('u_id',$user->id)->get()[0];
+        $courses    = $student->courses;
+        $courses_gotten = array();
+        $numOf_gotten = 0;
+        foreach ($courses as $gotten_course){
+            if($gotten_course->year == $this_year and $gotten_course->term == $this_term){
+                $numOf_gotten += $gotten_course->unit_no;
+                array_push($courses_gotten,$gotten_course);
+            }
+        }
+        /*******************************end part************************************/
+
+
+        $old_cart = Session::has('cart') ? Session::get('cart') : null;      /**if cart doesn't
+        exist create new one**/
         $cart = new Cart($old_cart);
-        $is_success = $cart->add($course,$course->id);
+        $is_success = $cart->add($course,$course->id,$courses_gotten,$numOf_gotten);
         $request->session()->put('cart',$cart);
-//        dd($request->session());
-//        dd($is_success);
-        return back(302,['message'=>$is_success]);
+        $request->session()->put('message',$is_success);                 //report status to course@index
+        return back(302);
     }
 }
