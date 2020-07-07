@@ -26,7 +26,8 @@ Route::get('/index', function () {
 
 });
 //
-Route::resource('students','StudentController')->middleware('auth');
+Route::post('/students/{id}/edit','StudentController@edit');
+Route::resource('students','StudentController')->except(['edit'])->middleware('auth');
 Route::resource('persons','PersonController');
 Route::resource('teachers','TeacherController');
 Route::resource('courses','CourseController')->middleware('auth');

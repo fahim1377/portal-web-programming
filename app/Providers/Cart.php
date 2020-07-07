@@ -30,7 +30,7 @@ class Cart
     public function add($item,$id,$courses_gotten,$numOf_gotten){
         $stored_item = ['unit' => $item->unit_no, 'number' => 0,'course' => $item];
 
-        /***************if course added to cart return err***************/
+        /***************if course added to cart or gotten before return err***************/
         if($this->items){
             if(array_key_exists($id,$this->items)){
                 return 'already exists';
