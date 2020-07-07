@@ -83,10 +83,10 @@
                 </div>
             </div>
             <div class="row justify-content-md-center">
-            <input class="btn btn-primary" style="padding: 10px; margin: 10px;" type="submit" value="به روز رسانی">
+                <input class="btn btn-primary" style="padding: 10px; margin: 10px;" type="submit" value="به روز رسانی">
             </div>
         </form>
-<hr>
+        <hr>
         <form action="../../students/{{$student->id}}" method="post">
             <div class="form-group row">
                 {{--TODO Mr.Sulaiman write generic mode for this part because maybe will add some field here--}}

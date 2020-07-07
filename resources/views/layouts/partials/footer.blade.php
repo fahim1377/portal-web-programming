@@ -1,12 +1,12 @@
 <footer class="text-muted">
 
-     <div class="container">
+     <div class="container"  >
 
-       <p class="float-right">
+       <label>
 
          <a href="#">برگشت به اول</a>
 
-       </p>
+</label>
 
        <p>مهندسی نت، پروژه نهایی &copy</p>
 
