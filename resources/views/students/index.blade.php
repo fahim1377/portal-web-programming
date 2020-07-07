@@ -46,8 +46,11 @@
                     <td>{{$student->field}}</td>
                     <td>{{$student->email}}</td>
                     <td>
-                        {{-- this is fot link to edit students    --}}
-                        <button type="button" class="btn btn-primary" ><a class="text-light" href="{{ url('/students/'.$student->id.'/edit') }}">ویرایش</a></button>
+                         {{--this is fot link to edit students    --}}
+                        <form action="{{ url('/students/'.$student->id.'/edit') }}" method="post">
+                            {{csrf_field()}}
+                            <button type="submit" class="btn btn-primary" >ویرایش</button>
+                        </form>
                         {{-- this is fot link to edit students    --}}
                     </td>
                 </tr>

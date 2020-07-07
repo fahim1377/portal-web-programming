@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Student;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -49,7 +50,11 @@ class LoginController extends Controller
             $user->setRememberToken($this_token);
             $user->save();
             $request->session()->put('remember_token',$this_token);
-            return $this->redirectTo;
+
+            /******this part find student to go student/show ********/
+            $student = Student::where('u_id',Auth::id())->get()[0];
+            return redirect('students/'.$student->id);
+            /******end part******************************************/
         }
         return back();
     }

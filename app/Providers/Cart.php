@@ -27,21 +27,34 @@ class Cart
         }
     }
 
-    public function add($item,$id){
-        $stored_item = ['unit' => $item->unit_no, 'number' => 0,'item' => $item];
+    public function add($item,$id,$courses_gotten,$numOf_gotten){
+        $stored_item = ['unit' => $item->unit_no, 'number' => 0,'course' => $item];
+
+        /***************if course added to cart or gotten before return err***************/
         if($this->items){
             if(array_key_exists($id,$this->items)){
                 return 'already exists';
             }
         }
+        foreach ($courses_gotten as $course_gotten){
+                if ($course_gotten->id == $stored_item['course']->id){
+                    return 'already gotten';
+                }
+        }
+        /****************end part****************************************/
+
+
+        /**if units are greater than max_units(default=6) return err else add to cart******/
         $stored_item['number']++;
-        if($this->total_unit + $stored_item['unit'] <= Config::get('constants.max_units')) {
+        if($this->total_unit + $stored_item['unit'] + $numOf_gotten <= Config::get('constants.max_units')) {
             $this->items[$id] = $stored_item;
             $this->total_unit = $this->total_unit + $stored_item['unit'];
             $this->total_number++;
             return 'ok';
         }
         return 'total_units_err';
+        /*********************end part***************************************************/
+
     }
 
 }

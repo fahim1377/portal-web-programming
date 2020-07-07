@@ -25,7 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd("here");
         $student = Student::where('u_id',Auth::id())->get()[0];
         return redirect('students/'.$student->id);
     }
