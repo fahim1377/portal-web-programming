@@ -127,8 +127,8 @@ class TeacherController extends Controller
             'id'        => $request->u_id,
             'fname'     => $request->fname,
             'lname'     => $request->lname,
-            'field'     => $request->field,
-            'email'     => $request->email
+            'group_id'  => $request->group_id,
+            'email'     =>  $request->email
         ]);
         //        now teacher
         Teacher::where('id',$id)->update([
