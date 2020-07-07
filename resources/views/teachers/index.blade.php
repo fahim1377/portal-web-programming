@@ -5,6 +5,10 @@
 <div class="album text-muted">
 
     <div class="jumbotron">
+        <h3>اساتید گروه
+            <!-- TODO fetch the group from request -->
+            <!-- <label value="{{ app('request')->input('field') }}"></label> -->
+        </h3>
         <table class="table table-sm">
             <thead>
                 <tr>

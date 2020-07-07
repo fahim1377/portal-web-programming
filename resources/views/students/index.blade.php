@@ -5,6 +5,7 @@
 <div class="album text-muted">
 
     <div class="jumbotron">
+        <h3>دانشجویان</h3>
         <br>
         @foreach($students_grouped as $group => $students)
 
