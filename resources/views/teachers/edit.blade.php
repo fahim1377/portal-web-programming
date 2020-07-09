@@ -41,7 +41,7 @@
                         <div class="form-group col-sm-6">
                             <label for="input_group_id">شماره گروه درسی</label>
                             <br>
-                            <input id="input_group_id" type="text" , name="group_ids" value={{$teacher->group_id}}>
+                            <input id="input_group_id" type="text" , name="group_id" value={{$teacher->group_id}}>
                         </div>
                     </div>
                 </div>
