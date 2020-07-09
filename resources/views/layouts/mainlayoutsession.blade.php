@@ -24,4 +24,4 @@
  </body>
 
 </html>
-{{dd(session('cart'))}}
+<!-- {{dd(session('cart'))}} -->
