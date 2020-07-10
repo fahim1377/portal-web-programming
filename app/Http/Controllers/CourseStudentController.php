@@ -42,15 +42,19 @@ class CourseStudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
         //TODO validate
+        /*************find student*****************************/
+        $user_id = Auth::id();
+        $student    = Student::where('u_id',$user_id)->get()[0];
+        /***********************end part***********************/
+
         /********find courses that are taken*******************/
         $date = Jalalian::now();
         $this_year  = $date->getYear();
         $this_term  = 1;
-        $student    = Student::find($id);
         $courses    = $student->courses;
         $this_term_courses = array();
         foreach ($courses as $course){
@@ -58,12 +62,11 @@ class CourseStudentController extends Controller
                 array_push($this_term_courses,$course);
             }
         }
-
         /*******************find courses that are in session***************************/
         /*****************************************************************************/
         return view('takes/show',[
             'taken'=>$this_term_courses,
-            'student_id' => $id
+            'student_id' => $student->id
         ]);
     }
 

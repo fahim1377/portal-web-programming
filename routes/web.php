@@ -33,6 +33,8 @@ Route::resource('teachers','TeacherController');
 Route::resource('courses','CourseController')->middleware('auth');
 Route::resource('prerequisties','PrerequistiesController');
 Route::resource('contents','ContentController');
+Route::get('/takes','CourseStudentController@show')->middleware('auth');
+Route::post('/takse','CourseStudentController@store')->middleware('auth');
 Route::resource('takes','CourseStudentController')->except([
     'index','update','edit','create'
 ])->middleware('auth');

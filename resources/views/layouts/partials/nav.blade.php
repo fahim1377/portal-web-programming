@@ -26,7 +26,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/courses?year=1399">مشاهده‌ دروس</a>
-          <a class="dropdown-item" href="/courses/edit.blade.php">انتخاب واحد</a>
+          <a class="dropdown-item" href="/takes">انتخاب واحد</a>
         </div>
       </li>
     </ul>
