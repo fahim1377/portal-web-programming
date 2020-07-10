@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">صفحه‌اصلی <span class="sr-only">(الان)</span></a>
+        <a class="nav-link" href="/index">صفحه‌اصلی <span class="sr-only">(الان)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -14,11 +14,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/students">مشاهده‌ دانشجویان</a>
-          <a class="dropdown-item" href="/students/edit.blade.php">ویرایش دانشجو</a>
+          <!-- <a class="dropdown-item" href="/students/edit.blade.php">ویرایش دانشجو</a> -->
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/teachers">اساتید</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
