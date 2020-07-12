@@ -10,16 +10,16 @@
         @foreach($students_grouped as $group => $students)
 
         {{-- this is fot link to teachers    --}}
-        <form action="../teachers" method="get">
+        <form class="justify-content-md-center" action="../teachers" method="get">
             {{csrf_field()}}
             <input type="hidden" , name="field" value="{{$group}}">
-            <input type="submit" name="submit" value="{{"اساتید ".strval($group)}}">
+            <input id="btn-teachers" class="btn" type="submit" name="submit" value="{{"اساتید ".strval($group)}}">
         </form>
         {{-- --}}
 
 
         {{-- show table of student  --}}
-        <table class="table table-sm" id="studentsTable">
+        <table class="customTable table table-md table-hover table-responsive" id="studentsTable">
             <thead>
                 <tr>
                     <th>id</th>
