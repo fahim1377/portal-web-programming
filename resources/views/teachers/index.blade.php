@@ -9,7 +9,7 @@
             <!-- TODO fetch the group from request -->
             <!-- <label value="{{ app('request')->input('field') }}"></label> -->
         </h3>
-        <table class="table table-sm">
+        <table class="customTable table table-md table-hover table-responsive">
             <thead>
                 <tr>
                     <th>{{\Illuminate\Support\Facades\Config::get('constants.teacher_id')}}</th>
@@ -32,7 +32,9 @@
                     <td>{{$teacher->email}}</td>
                     <td>
                         {{-- this is fot link to edit students    --}}
-                        <button class="btn btn-primary"><a class="text-light" href="{{ url('/teachers/'.$teacher->id.'/edit') }}"> ویرایش </a></button>
+                        <button class="btn btn-primary"><a class="text-light" href="{{ url('/teachers/'.$teacher->id.'/edit') }}">
+                        <i class=" fa fa-pencil fa-fw fa-1x" aria-hidden="true"></i>
+                        ویرایش </a></button>
                         {{-- this is fot link to edit students    --}}
                     </td>
                 </tr>
