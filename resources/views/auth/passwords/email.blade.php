@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.loginlayout')
 
-@section('contents')
-<div class="container">
+@section('content')
+<div class="container auth-page">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -44,4 +44,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection('content')

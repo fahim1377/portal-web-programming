@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.loginlayout')
 
-@section('contents')
+@section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center auth-page">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Confirm Password') }}</div>
@@ -46,4 +46,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection(content)

@@ -18,7 +18,6 @@
             مشاهده‌ دانشجویان
             <i class="fa fa-ellipsis-h fa-fw fa-1x" aria-hidden="true"></i>
           </a>
-          <!-- <a class="dropdown-item" href="/students/edit.blade.php">ویرایش دانشجو</a> -->
         </div>
       </li>
       <li class="nav-item dropdown">
