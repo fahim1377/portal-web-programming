@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 //TODO: change it to index
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 Route::get('/laravel', function () {
     return view('welcome2');

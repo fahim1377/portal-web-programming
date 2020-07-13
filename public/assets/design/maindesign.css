@@ -1,0 +1,42 @@
+#bodyBootstrapOverrides {
+    background-color: #e4e3e3;
+
+}
+#bodyBootstrapOverrides .jumbotron{
+    background-color: #f7f9fb;
+
+}
+#bodyBootstrapOverrides .btn{
+    background-color: #393e46;
+    color: white;
+    border-color:  #393e46;
+}
+
+
+#bodyBootstrapOverrides table th{
+    background-color: #eeeeee;
+    padding: 10px;
+    color: black;
+}
+#myNavbar a{
+    padding: 10px;
+    margin: 10px;
+    border: 20px;
+    border-radius: 20px;
+    border-color: black;
+}
+#myNavbar {
+    background-color: #393e46;
+}
+/* color the dropdown nav bar menu */
+/* #navbarNavDropdown {
+    color: #76ead7;
+} */
+#btn-teachers {
+    padding-bottom: 0px;
+}
+/* not worrking */
+
+/* .custumTable{
+    border: 10px black;
+} */

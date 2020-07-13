@@ -8,7 +8,7 @@
 
  </head>
 
- <body>
+ <body id="bodyBootstrapOverrides">
 
 
 @include('layouts.partials.nav')
