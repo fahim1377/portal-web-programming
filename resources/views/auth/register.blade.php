@@ -100,9 +100,17 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                {{--<button type="submit" class="btn btn-primary">--}}
+                                    {{--{{ __('Register') }}--}}
+                                {{--</button>--}}
+                                {{--recaptcha--}}
+                                <button
+                                        class="g-recaptcha"
+                                        data-sitekey="6Lfaxa8ZAAAAAB5QOeTvl3Wwd3DGRvLG0IIEG65Z"
+                                        data-callback="onSubmit">
+                                    Submit
                                 </button>
+                                {{--endpart--}}
                             </div>
                         </div>
                     </form>
