@@ -50,7 +50,10 @@
                          {{--this is fot link to edit students    --}}
                         <form action="{{ url('/students/'.$student->id.'/edit') }}" method="post">
                             {{csrf_field()}}
-                            <button type="submit" class="btn btn-primary" >ویرایش</button>
+                            <button type="submit" class="btn btn-primary" >
+                            <i class=" fa fa-pencil fa-fw fa-1x" aria-hidden="true"></i>
+
+                                ویرایش</button>
                         </form>
                         {{-- this is fot link to edit students    --}}
                     </td>

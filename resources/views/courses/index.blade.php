@@ -17,7 +17,7 @@
         <h4>{{"گروه ".$group}} </h4>
         @foreach($terms as $term => $courses)
         <h5>{{"term".$term}} </h5>
-        <table class="table table-sm" id="courses table">
+        <table class="customTable table table-md table-hover table-responsive" id="courses table">
             <thead>
                 <tr>
                     <th>شماره درس</th>
@@ -44,7 +44,9 @@
                     <td>{{$course->group_id}}</td>
                     <td>
                         <!-- {{$course}} -->
-                        <button class="btn btn-primary"><a class="text-light" href="{{ route('courses.addToCart',['id' => $course->id]) }}">اخذ</a></button>
+                        <button class="btn btn-primary"><a class="text-light" href="{{ route('courses.addToCart',['id' => $course->id]) }}">
+                        <i class=" fa fa-check fa-fw fa-1x" aria-hidden="true"></i>    
+                        اخذ</a></button>
                     </td>
                 </tr>
                 @endforeach

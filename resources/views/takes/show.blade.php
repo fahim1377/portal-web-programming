@@ -44,7 +44,8 @@
                             {{csrf_field()}}
                             @method('DELETE')
                             <input type="hidden" , name="student_id" value={{$student_id}}>
-                            <input type="submit" value="delete">
+                            <i class=" fa fa-close fa-fw fa-1x" aria-hidden="true"></i>    
+                            <input class="btn" type="submit" value="حذف درس">
                         </form>
                     </td>
                 </tr>
