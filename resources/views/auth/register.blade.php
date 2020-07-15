@@ -4,10 +4,10 @@
 <div class="container auth-page">
     <div id="headerAuthPage" class="card col-sm-12" style="padding: 20px;">
         <h3>ثبت نام</h3>
-        <select id="selectForm" class="browser-default custom-select col-md-2">
+        <select name = "sORt" id="selectForm" class="browser-default custom-select col-md-2">
             <option selected>نوع کاربر</option>
-            <option value="1">دانشجو</option>
-            <option value="2">استاد</option>
+            <option value="student">دانشجو</option>
+            <option value="teacher">استاد</option>
         </select>
     </div>
 
@@ -78,6 +78,42 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="group" class="col-md-4 col-form-label text-md-right">{{ __('استاد راهنما') }}</label>
+
+
+                            <div class="col-md-6">
+                                <select id="guide_teacher_id" name="guide_teacher_id">
+                                    @foreach($teachers as $teacher)
+                                        <option value={{$teacher->id}}>{{$teacher->fname." ".$teacher->lname}}</option>
+                                    @endforeach
+                                </select>
+                                @error('guide_teacher_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="group" class="col-md-4 col-form-label text-md-right">{{ __('مقطع') }}</label>
+
+
+                            <div class="col-md-6">
+                                <select id="grade" name="grade">
+                                    <option value="کارشناسی">کارشناسی</option>
+                                    <option value="کارشناسی ارشد">کارشناسی ارشد</option>
+                                </select>
+                                @error('grade')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('آدرس ایمیل') }}</label>
 
                             <div class="col-md-6">
@@ -106,6 +142,8 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
+                        <input name="sORt" value="student" type="hidden" >
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6">
@@ -183,6 +221,25 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="group" class="col-md-4 col-form-label text-md-right">{{ __('گروه') }}</label>
+
+
+                            <div class="col-md-6">
+                                <select id="group_id" name="group_id">
+                                    @foreach($groups as $group)
+                                        <option value={{$group->id}}>{{$group->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('group_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('آدرس ایمیل') }}</label>
 
                             <div class="col-md-6">
@@ -212,6 +269,8 @@
                             </div>
                         </div>
 
+                        <input name="sORt" value="teacher" type="hidden" >
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6">
                                 <button class="btn btn-primary" type="submit">
@@ -228,12 +287,12 @@
 <script>
     $(document).ready(function() {
         $('#selectForm').on('change', function() {
-            if (this.value == '1')
+            if (this.value == 'student')
             //.....................^.......
             {
                 $("#studentRegisterForm").show();
                 $("#teacherRegisterForm").hide();
-            } else if (this.value == '2') {
+            } else if (this.value == 'teacher') {
                 $("#studentRegisterForm").hide();
                 $("#teacherRegisterForm").show();
             }

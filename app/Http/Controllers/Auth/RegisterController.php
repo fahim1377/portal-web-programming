@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\EducationalGroup;
 use App\Http\Controllers\Controller;
+use App\PersonTeacherViews;
 use App\Providers\RouteServiceProvider;
 use App\Student;
 use App\Teacher;
@@ -12,6 +13,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use phpDocumentor\Reflection\Types\Integer;
 
 class RegisterController extends Controller
 {
@@ -54,19 +57,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         if($data['sORt']=='student'){
-            return Validator::make($data, [
+            $d =  Validator::make($data, [
                 'fname'                => ['required', 'string', 'max:255'],
                 'lname'                => ['required', 'string', 'max:255'],
                 'email'                => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password'             => ['required', 'string', 'min:8', 'confirmed'],
-                'id'                   => ['required', 'string', 'min:8', 'confirmed'],
-                'group_id'             => ['required', 'string', 'max:255'],
-                'guide_teacher_id'     => ['required', 'string', 'min:8', 'confirmed'],
-                'units_no'             => ['required', 'string', 'min:8', 'confirmed'],
-                'grade'                => ['required', 'string', 'min:8', 'confirmed'],
-                'student_id'           => ['required', 'string', 'min:8', 'confirmed']
+                'password'             => ['required', 'string', 'confirmed'],
+//TODO                'id'                   => ['required', 'string','confirmed'],
+//TODO                'group_id'             => ['required', 'string', 'max:255'],
+//TODO                'guide_teacher_id'     => ['required', 'string', 'confirmed'],
+//TODO                'grade'                => ['required', 'string', 'confirmed'],
+//TODO                'student_id'           => ['required', 'string', 'confirmed']
             ]);
-
+//            dd($d);
+            return $d;
         }
         elseif ($data['sORt']=='teacher'){
             return Validator::make($data, [
@@ -74,10 +77,10 @@ class RegisterController extends Controller
                 'lname'                => ['required', 'string', 'max:255'],
                 'email'                => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password'             => ['required', 'string', 'min:8', 'confirmed'],
-                'id'                   => ['required', 'string', 'min:8', 'confirmed'],
-                'group_id'             => ['required', 'string', 'max:255'],
-                'academic_rank'        => ['required', 'string', 'min:8', 'confirmed'],
-                'teacher_id'           => ['required', 'string', 'min:8', 'confirmed'],
+//TODO                'id'                   => ['required', 'string', 'min:8', 'confirmed'],
+//TODO                'group_id'             => ['required', 'string', 'max:255'],
+//TODO                'academic_rank'        => ['required', 'string', 'min:8', 'confirmed'],
+//TODO                'teacher_id'           => ['required', 'string', 'min:8', 'confirmed'],
             ]);
         }
     }
@@ -90,40 +93,45 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $this_token = Str::random(64);
-        Session::put('remember_token',$this_token);
-        $user = User::create([
-            'fname'             => $data['fname'],
-            'lname'             => $data['lname'],
-            'email'             => $data['email'],
-            'password'          => Hash::make($data['password']),
-            'group_id'          => $data['group'],
-            'id'                => $data['id'],
-            'remember_token'    => $this_token
-        ]);
-        if($data['sORt']=='student'){
-            $student = Student::create([
-                'u_id'                 => $user->id,
-                'guide_teacher_id'     => $data['guide_teacher_id'],
-                'units_no'             => $data['units_no'],
-                'grade'                => $data['grade'],
-                'id'                   => $data['student_id']
-            ]);
+        try {
+            $this_token = Str::random(64);
+            Session::put('remember_token', $this_token);
+            $user = new User();
+            $user->id = ($data['id']);
+            $user->fname = $data['fname'];
+            $user->lname = $data['lname'];
+            $user->email = $data['email'];
+            $user->password = Hash::make($data['password']);
+            $user->group_id = $data['group_id'];
+            $user->remember_token = $this_token;
+            $user->save();
 
+            if ($data['sORt'] == 'student') {
+                $student = new Student();
+                $student->u_id = ($data['id']);
+                $student->guide_teacher_id = $data['guide_teacher_id'];
+                $student->units_no = 0;
+                $student->grade = $data['grade'];
+                $student->id = rand(10000000, 100000000);
+                $student->save();
+            } elseif ($data['sORt'] == 'teacher') {
+                $teacher = Teacher::create([
+                    'u_id' => $user->id,
+                    'academic_rank' => $data['academic_rank'],
+                    'id' => rand(10000000, 100000000)
+                ]);
+            }
+        }catch (\Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
-        elseif ($data['sORt']=='teacher'){
-            $teacher = Teacher::create([
-                'u_id'                 => $user->id,
-                'academic_rank'        => $data['academic_rank'],
-                'id'                   => $data['teacher_id']
-            ]);
-        }
+
+        return $user;
     }
 
 
     public function showRegistrationForm() {
         $groups      = EducationalGroup::all();
-        $teachers    = Teacher::all();
+        $teachers    = PersonTeacherViews::all();
         return view ('auth.register',[
             'groups'    =>  $groups,
             'teachers'  =>  $teachers
