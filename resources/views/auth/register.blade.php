@@ -1,18 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.loginlayout')
 
-@section('contents')
-<div class="container">
+@section('content')
+<div class="container auth-page">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('ثبت نام') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="first name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                            <label for="first name" class="col-md-4 col-form-label text-md-right">{{ __('نام') }}</label>
 
                             <div class="col-md-6">
                                 <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('name') }}" required autocomplete="fname" autofocus>
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="last name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+                            <label for="last name" class="col-md-4 col-form-label text-md-right">{{ __('نام خانوادگی') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('id') }}</label>
+                            <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('شماره کاربری') }}</label>
 
                             <div class="col-md-6">
                                 <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="group" class="col-md-4 col-form-label text-md-right">{{ __('Group') }}</label>
+                            <label for="group" class="col-md-4 col-form-label text-md-right">{{ __('گروه') }}</label>
 
 
                             <div class="col-md-6">
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('آدرس ایمیل') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('رمز عبور') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('تاییدی رمز عبور') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -119,5 +119,4 @@
         </div>
     </div>
 </div>
-@endsection
-
+@endsection('content')

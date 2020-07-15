@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/index"><i class="fa fa-home fa-fw fa-1x" aria-hidden="true"></i>صفحه‌اصلی <span class="sr-only">(الان)</span></a>
       </li>
@@ -18,25 +18,28 @@
             مشاهده‌ دانشجویان
             <i class="fa fa-ellipsis-h fa-fw fa-1x" aria-hidden="true"></i>
           </a>
-          <!-- <a class="dropdown-item" href="/students/edit.blade.php">ویرایش دانشجو</a> -->
         </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fa fa-book fa-fw fa-1x" aria-hidden="true"></i>
+          <i class="fa fa-book fa-fw fa-1x" aria-hidden="true"></i>
 
-        دروس ارایه شده ترم
+          دروس ارایه شده ترم
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/courses?year=1399">مشاهده‌ دروس
-          <i class="fa fa-ellipsis-h fa-fw fa-1x" aria-hidden="true"></i>
-        </a>
+            <i class="fa fa-ellipsis-h fa-fw fa-1x" aria-hidden="true"></i>
+          </a>
           <a class="dropdown-item" href="/takes">
-           انتخاب واحد
-           <i class="fa fa-cart-plus fa-fw fa-1x" aria-hidden="true"></i>
-        </a>
+            انتخاب واحد
+            <i class="fa fa-cart-plus fa-fw fa-1x" aria-hidden="true"></i>
+          </a>
         </div>
       </li>
+
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <a class="nav-link" href="/logout"><i class="fa fa-sign-out fa-fw fa-1x" aria-hidden="true"></i>خروج از حساب کاربری</a>
     </ul>
   </div>
 </nav>

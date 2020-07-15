@@ -40,3 +40,9 @@
 /* .custumTable{
     border: 10px black;
 } */
+#bodyBootstrapOverrides .auth-page {
+    margin-top: 10%;
+}
+#bodyBootstrapOverrides form .floatLeftNav{
+    float: left;
+}

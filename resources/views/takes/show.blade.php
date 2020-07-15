@@ -15,7 +15,7 @@
         {{--</form>--}}
         {{-- --}}
         <h4>جدول نهایی</h4>
-        <table class="table table-sm">
+        <table class="customTable table table-md table-hover table-responsive">
             <thead>
                 <tr>
                     <th>شماره دانشجویی</th>
