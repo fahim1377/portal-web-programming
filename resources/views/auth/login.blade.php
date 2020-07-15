@@ -58,12 +58,12 @@
                                     {{ __('ورود') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                <a class="btn btn-primary" href="{{ route('password.request') }}">
-                                <i class="fa fa-frown-o fa-fw fa-1x"></i>
-                                    {{ __('رمز عبور خود را فراموش کرده‌ام') }}
+                                <!-- @if (Route::has('password.request')) -->
+                                <a class="btn btn-primary" href="/register">
+                                <i class="fa fa-user-circle-o fa-fw fa-1x"></i>
+                                    {{ __('کاربر جدید | ثبت نام') }}
                                 </a>
-                                @endif
+                                <!-- @endif -->
                             </div>
                         </div>
                     </form>

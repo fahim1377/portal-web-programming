@@ -1,15 +1,15 @@
-<footer class="text-muted">
+<footer id="myFooter" class=" col-md-12">
 
-     <div class="container"  >
+  <div  class="container">
 
-       <label>
+    <label>
 
-         <a href="#">برگشت به اول</a>
+      <a href="#">برگشت به اول</a>
 
-</label>
+    </label>
 
-       <p>مهندسی نت، پروژه نهایی &copy</p>
+    <p>مهندسی نت، پروژه نهایی &copy</p>
 
-     </div>
+  </div>
 
-   </footer>
+</footer>

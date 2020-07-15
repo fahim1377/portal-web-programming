@@ -6,7 +6,7 @@
 
     <div class="jumbotron">
         <h3>دروس ارايه شده</h3>
-        {{session()->get('message')??''}}
+        <label class="badge badge-dark">{{session()->get('message')??''}}</label>
         @php
         if (session()->has('message')){
         session()->remove('message');
