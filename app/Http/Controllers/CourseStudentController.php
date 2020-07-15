@@ -83,6 +83,6 @@ class CourseStudentController extends Controller
         //
         //TODO validate
         CourseStudents::where([['course_id',$id],['student_id',$request->student_id]])->delete();
-        return redirect('/takes/'.$request->student_id);
+        return redirect('/takes');
     }
 }

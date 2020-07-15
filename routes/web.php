@@ -27,25 +27,25 @@ Route::get('/index', function () {
 });
 //
 Route::post('/students/{id}/edit','StudentController@edit')->middleware('auth');
-Route::resource('students','StudentController')->except(['edit'])->middleware('auth');
-Route::resource('persons','PersonController');
-Route::resource('teachers','TeacherController');
-Route::resource('courses','CourseController')->middleware('auth');
-Route::resource('prerequisties','PrerequistiesController');
-Route::resource('contents','ContentController');
+Route::resource('students','StudentController')->except(['edit','create','store'])->middleware('auth');
+Route::resource('persons','PersonController')->except(['create','store'])->middleware('auth');
+Route::resource('teachers','TeacherController')->except(['create','store'])->middleware('auth');
+Route::resource('courses','CourseController')->only(['index'])->middleware('auth');
+//TODO Route::resource('prerequisties','PrerequistiesController');
+//TODO Route::resource('contents','ContentController');
+/**********this route is seperate because you dont need to send id to show and store in url******************/
 Route::get('/takes','CourseStudentController@show')->middleware('auth');
-Route::post('/takse','CourseStudentController@store')->middleware('auth');
-Route::resource('takes','CourseStudentController')->except([
-    'index','update','edit','create'
-])->middleware('auth');
+Route::post('/takes','CourseStudentController@store')->middleware('auth');
+Route::delete('/takes/{id}','CourseStudentController@destroy')->middleware('auth');
+/*****************************************end part****************************************************************/
 
 
 Route::get('/courses/addToCart/{id}',[
     'uses' => 'CourseController@add_to_cart',
     'as'  => 'courses.addToCart'
-]);
+])->middleware('auth');
 
 Auth::routes();
 
-Route::get('/logout','Auth\LoginController@logout');
+Route::get('/logout','Auth\LoginController@logout')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');
