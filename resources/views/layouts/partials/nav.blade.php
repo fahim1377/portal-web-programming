@@ -1,11 +1,11 @@
 <nav id="myNavbar" class="navbar navbar-dark navbar-expand-lg">
-  <a class="navbar-brand" href="#"><i class="fa fa-university fa-fw fa-1x" aria-hidden="true"></i>پرتال دانشجویی</a>
+  <a class="navbar-brand badge badge-light" href="#"><i class="fa fa-university fa-fw fa-1x" aria-hidden="true"></i>پرتال دانشجویی</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="/index"><i class="fa fa-home fa-fw fa-1x" aria-hidden="true"></i>صفحه‌اصلی <span class="sr-only">(الان)</span></a>
       </li>
       <li class="nav-item dropdown">
@@ -39,7 +39,7 @@
 
     </ul>
     <ul class="navbar-nav mr-auto">
-      <a class="nav-link" href="/logout"><i class="fa fa-sign-out fa-fw fa-1x" aria-hidden="true"></i>خروج از حساب کاربری</a>
+      <a class="nav-link badge badge-secondary" href="/logout"><i class="fa fa-sign-out fa-fw fa-1x" aria-hidden="true"></i>خروج از حساب کاربری</a>
     </ul>
   </div>
 </nav>

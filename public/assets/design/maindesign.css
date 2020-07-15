@@ -1,6 +1,14 @@
+html{
+    position: relative;
+    height: 100%;
+}
 #bodyBootstrapOverrides {
+    position: relative;
     background-color: #e4e3e3;
-
+    /* margin: 0 0 100px; */
+    /* bottom = footer height */
+    padding-bottom: 100px;
+    min-height: 100%;
 }
 #bodyBootstrapOverrides .jumbotron{
     background-color: #f7f9fb;
@@ -11,7 +19,20 @@
     color: white;
     border-color:  #393e46;
 }
-
+#myNavbar .nav-link{
+    color: black;
+    font-size: large;
+}
+#bodyBootstrapOverrides .badge-light{
+    /* background-color: #393e46; */
+    color: #393e46;
+    font-size: larger;
+}
+#bodyBootstrapOverrides .badge-secondary{
+    /* background-color: #393e46; */
+    color: white;
+    font-size: small;
+}
 
 #bodyBootstrapOverrides table th{
     background-color: #eeeeee;
@@ -22,11 +43,23 @@
     padding: 10px;
     margin: 10px;
     border: 20px;
-    border-radius: 20px;
+    border-radius: 5px;
     border-color: black;
 }
+
 #myNavbar {
-    background-color: #393e46;
+    background-image: linear-gradient(15deg, #f7f9fb 0%, #393e46 100%);
+}
+#myFooter {
+    background-image: linear-gradient(15deg, #f7f9fb 0%, #393e46 100%);
+    color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -50px;
 }
 /* color the dropdown nav bar menu */
 /* #navbarNavDropdown {
@@ -56,4 +89,8 @@
 #headerAuthPage {
     background-color: #393e46;
     color: white;
+}
+#bodyBootstrapOverrides img{
+    /* width: ; */
+    height: fit-content;
 }
