@@ -43,3 +43,6 @@
 #bodyBootstrapOverrides .auth-page {
     margin-top: 10%;
 }
+#bodyBootstrapOverrides form .floatLeftNav{
+    float: left;
+}
