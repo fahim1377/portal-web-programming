@@ -41,8 +41,19 @@
     border: 10px black;
 } */
 #bodyBootstrapOverrides .auth-page {
-    margin-top: 10%;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
 }
 #bodyBootstrapOverrides form .floatLeftNav{
     float: left;
+}
+#studentRegisterForm {
+    display: none;
+}
+#teacherRegisterForm {
+    display: none;
+}
+#headerAuthPage {
+    background-color: #393e46;
+    color: white;
 }
