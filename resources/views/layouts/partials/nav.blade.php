@@ -36,6 +36,9 @@
         </a>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout"><i class="fa fa-logout fa-fw fa-1x" aria-hidden="true"></i>خروج</a>
+      </li>
     </ul>
   </div>
 </nav>

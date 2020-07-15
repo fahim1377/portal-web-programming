@@ -59,6 +59,11 @@ class LoginController extends Controller
         return back();
     }
 
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
 //    public function username()
 //    {
 //        return  'id';
