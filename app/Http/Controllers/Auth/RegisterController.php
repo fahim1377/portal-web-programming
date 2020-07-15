@@ -122,9 +122,11 @@ class RegisterController extends Controller
 
 
     public function showRegistrationForm() {
-        $groups = EducationalGroup::all();
+        $groups      = EducationalGroup::all();
+        $teachers    = Teacher::all();
         return view ('auth.register',[
-            'groups'    =>  $groups
+            'groups'    =>  $groups,
+            'teachers'  =>  $teachers
         ]);
     }
 
