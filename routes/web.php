@@ -30,7 +30,7 @@ Route::post('/students/{id}/edit','StudentController@edit')->middleware('auth');
 Route::resource('students','StudentController')->except(['edit','create','store'])->middleware('auth');
 Route::resource('persons','PersonController')->except(['create','store'])->middleware('auth');
 Route::resource('teachers','TeacherController')->except(['create','store'])->middleware('auth');
-Route::resource('courses','CourseController')->only(['index'])->middleware('auth');
+Route::resource('courses','CourseController')->only(['index','create','store'])->middleware('auth');
 //TODO Route::resource('prerequisties','PrerequistiesController');
 //TODO Route::resource('contents','ContentController');
 /**********this route is seperate because you dont need to send id to show and store in url******************/

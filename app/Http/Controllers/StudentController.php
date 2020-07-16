@@ -184,6 +184,9 @@ class StudentController extends Controller
     {
         //
         //TODO validate
+        $u_id = Student::where('id',$id)->get()[0]->u_id;
         Student::where('id',$id)->delete();
+        User::where('id',$u_id)->delete();
+        return redirect('../students');
     }
 }

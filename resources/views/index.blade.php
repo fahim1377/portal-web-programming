@@ -15,7 +15,7 @@
                             <h3 class="card-title">فهیم جعفری</h3>
                             <p class="card-text">مهندسی کامپیوتر</p>
                             <!-- TODO add fahim's ID -->
-                            <p class="card-text">شماره دانشجویی:۹۶</p>
+                            <p class="card-text">شماره دانشجویی:۹</p>
                             <!-- <a class="btn btn-primary" href="#" target="_blank" style="background-color: #14213d">بیشتر بخوانید</a> -->
                         </div>
                     </div>
