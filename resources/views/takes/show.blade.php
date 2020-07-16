@@ -18,7 +18,7 @@
         <table class="customTable table table-md table-hover table-responsive">
             <thead>
                 <tr>
-                    <th>شماره دانشجویی</th>
+                    <th>شماره درس</th>
                     <th>سال</th>
                     <th>ترم</th>
                     <th>نام</th>
